@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+
+/* roboto font */
+@font-face {
+    font-family: "roboto-regular";
+    src: url(assets/font/Roboto/static/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: "roboto-medium";
+    src: url(assets/font/Roboto/static/Roboto-Medium.ttf);
+}
+
+@font-face {
+    font-family: "roboto-semibold";
+    src: url(assets/font/Roboto/static/Roboto-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "roboto-bold";
+    src: url(assets/font/Roboto/static/Roboto-Bold.ttf);
+}
+
+/* roboto-mono font */
+@font-face {
+    font-family: "roboto-mono-regular";
+    src: url(assets/font/Roboto_Mono/static/RobotoMono-Regular.ttf);
+}
+
+@font-face {
+    font-family: "roboto-mono-medium";
+    src: url(assets/font/Roboto_Mono/static/RobotoMono-Medium.ttf);
+}
+
+
+
+@theme {
+
+    --color-absolute-black: #000000;
+    --color-absolute-white: #ffffff;
+
+    --color-brown-60: #AE9B84;
+    --color-brown-65: #B8A893;
+    --color-brown-70: #C2B4A3;
+    --color-brown-80: #D6CDC2;
+    --color-brown-90: #EBE6E0;
+    --color-brown-95: #F5F3F0;
+    --color-brown-97: #F9F8F6;
+    --color-brown-99: #FDFDFC;
+
+    --color-dark-06: #0F0F0F;
+    --color-dark-10: #1A1A1A;
+    --color-dark-12: #1F1F1F;
+    --color-dark-15: #262626;
+    --color-dark-20: #333333;
+    --color-dark-25: #404040;
+    --color-dark-30: #4D4D4D;
+    --color-dark-35: #595959;
+
+    --color-neutral-40: #676665;
+    --color-neutral-50: #81807E;
+    --color-neutral-70: #B3B3B2;
+    --color-neutral-80: #CCCCCC;
+    --color-neutral-90: #E6E6E6;
+    --color-neutral-95: #F2F2F2;
+    --color-neutral-97: #F7F7F7;
+    --color-neutral-99: #FCFCFC;
+
+
+    --font-roboto-regular: "roboto-regular";
+    --font-roboto-medium: "roboto-medium";
+    --font-roboto-semibold: "roboto-semibold";
+    --font-roboto-bold: "roboto-bold";
+
+    --font-roboto-mono-regular: "roboto-mono-regular";
+    --font-roboto-mono-medium: "roboto-mono-medium";
+}
+
+
+body {
+    @apply bg-dark-06;
+}
