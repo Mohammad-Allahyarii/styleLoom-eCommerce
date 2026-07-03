@@ -1,13 +1,17 @@
-import { Outlet } from "react-router";
+import { Outlet } from 'react-router';
+
+import Container from '@/components/container/Container';
+import LayoutNavbar from '@/Layouts/MainAppLayou/components/LayoutNavbar';
 
 const MainAppLayout = () => {
   return (
-    <div>
-      <h1>layout</h1>
-      <div>
+    <>
+      <LayoutNavbar />
+      <Container as="main" className="flex-1">
         <Outlet />
-      </div>
-    </div>
+      </Container>
+      <Container as="footer">footer</Container>
+    </>
   );
 };
 
