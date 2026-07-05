@@ -19,7 +19,7 @@ type PropsType = {
 const Container = ({ as: Element = 'div', className, children }: PropsType) => {
   return (
     <Element
-      className={clsx('container lg:max-w-7xl mx-auto', className)}
+      className={clsx('container lg:max-w-7xl mx-auto px-2', className)}
     >
       {children}
     </Element>
