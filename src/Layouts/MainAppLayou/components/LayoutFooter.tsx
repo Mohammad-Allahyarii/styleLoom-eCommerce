@@ -49,7 +49,7 @@ const LayoutFooter = () => {
       <Ticker pauseOnHover={false} items={tickerItems} />
       <DashedLine />
 
-      <Container as="div" className="grid grid-cols-2 p-20 ">
+      <Container as="div" className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-y-8 md:p-20 p-10 ">
         {/* left */}
         <div>
           <img
@@ -59,7 +59,7 @@ const LayoutFooter = () => {
           />
         </div>
         {/* right */}
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-start md:justify-end">
           <div className="flex items-center justify-end gap-4">
             {FOOTER_SOCIALS.map((item) => (
               <Link
@@ -75,7 +75,7 @@ const LayoutFooter = () => {
         </div>
       </Container>
       <DashedLine />
-      <Container as={'div'} className="py-14.5 grid grid-cols-3 gap-10">
+      <Container as={'div'} className="py-14.5 grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-10">
         {/* home links */}
         <FooterPageLinks links={FOOTER_HOME_LINKS} title="Home" />
         {/* products links */}
@@ -95,7 +95,7 @@ const LayoutFooter = () => {
         </div>
       </Container>
       <DashedLine />
-      <Container as="div" className="font-roboto-mono-regular text-grey-50 text-sm py-10 flex items-center justify-between">
+      <Container as="div" className="font-roboto-mono-regular text-grey-50 text-sm py-10 flex items-center justify-between flex-wrap gap-y-4">
         <p>© { date.getFullYear() } StyleLoom. All rights reserved.</p>
         <div className="flex items-center gap-2">
           <p>Terms & Conditions</p>
