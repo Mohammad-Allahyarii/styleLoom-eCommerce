@@ -1,10 +1,8 @@
+
+
 const DashedLine = () => {
   return (
-    <svg
-      className="absolute bottom-0 left-0 w-full"
-      height="1"
-      preserveAspectRatio="none"
-    >
+    <svg className={"w-full"} height="1" preserveAspectRatio="none">
       <line
         className="stroke-dark-15"
         x1="0"
@@ -13,7 +11,7 @@ const DashedLine = () => {
         y2="0"
         stroke="black"
         strokeWidth="3"
-        strokeDasharray="5 10"
+        strokeDasharray="10 8"
       />
     </svg>
   );
