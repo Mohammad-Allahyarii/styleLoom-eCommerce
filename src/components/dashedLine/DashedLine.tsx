@@ -3,14 +3,16 @@ import clsx from 'clsx';
 type DashedLineProps = {
   axis?: 'horizontal' | 'vertical';
   className?: string;
+  style?: React.CSSProperties;
 };
 
-const DashedLine = ({ axis = 'horizontal', className }: DashedLineProps) => {
+const DashedLine = ({ axis = 'horizontal', className, style }: DashedLineProps) => {
   const isHorizontal = axis === 'horizontal';
 
   return (
     <svg
       className={clsx(isHorizontal ? 'w-full' : 'h-full', className)}
+      style={style}
       width={isHorizontal ? '100%' : '1'}
       height={isHorizontal ? '1' : '100%'}
       preserveAspectRatio="none"
