@@ -2,6 +2,7 @@ import { Link } from 'react-router';
 
 import FooterSectionTitle from '@/Layouts/MainAppLayou/components/FooterSectionTitle';
 import DotDivider from '@/components/dotDivider/DotDivider';
+import { Fragment } from 'react/jsx-runtime';
 
 interface props {
   links: {
@@ -17,7 +18,7 @@ const FooterPageLinks = ({ links, title }: props) => {
       <FooterSectionTitle title={title} />
       <div className="flex items-center justify-start gap-3 flex-wrap">
         {links.map((item, index) => (
-          <>
+          <Fragment key={item.title}>
             {index !== 0 && index < links.length && <DotDivider />}
 
             <Link
@@ -26,7 +27,7 @@ const FooterPageLinks = ({ links, title }: props) => {
             >
               {item.title}
             </Link>
-          </>
+          </Fragment>
         ))}
       </div>
     </div>
