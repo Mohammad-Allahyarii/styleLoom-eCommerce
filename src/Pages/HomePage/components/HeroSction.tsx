@@ -18,7 +18,6 @@ import useMediaQuery from '@/hooks/useMediaQuery';
 
 const HeroSction = () => {
   const isMobile = useMediaQuery('(max-width:396px)');
-  console.log(isMobile);
 
   return (
     <SectionContainer className={'text-absolute-white my-10 overflow-hidden'}>
@@ -50,7 +49,7 @@ const HeroSction = () => {
           {/* category chips */}
           <div className="flex items-center gap-2 justify-start">
             {CATEGORIES.map((category) => (
-              <Link to={category.href} className="">
+              <Link key={category.id} to={category.href} className="">
                 <DashedBox className={'py-2 md:py-3 px-4 md:px-6 capitalize'}>
                   {category.title}
                 </DashedBox>
@@ -70,7 +69,7 @@ const HeroSction = () => {
         {/* right side */}
         <div className="grid grid-cols-2 grid-rows-2 relative">
           {HERO_SECTION_DATAS.slice(0, 4).map((item) => (
-            <div className="flex flex-col items-start justify-center py-6 md:py-0 px-7 md:px-10">
+            <div key={item.id} className="flex flex-col items-start justify-center py-6 md:py-0 px-7 md:px-10">
               <h6 className="font-roboto-medium text-[30px] md:text-[40px] text-absolute-white">
                 {item.title}
               </h6>
