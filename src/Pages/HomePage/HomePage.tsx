@@ -1,5 +1,6 @@
 import Container from "@/components/container/Container";
 import CraftingTrendsSection from "@/Pages/HomePage/components/CraftingTrendsSection";
+import ElevateStyleSection from "@/Pages/HomePage/components/ElevateStyleSection";
 import HeroSction from "@/Pages/HomePage/components/HeroSction";
 import NavigatingStyleloom from "@/Pages/HomePage/components/NavigatingStyleloom";
 
@@ -10,6 +11,7 @@ const HomePage = () => {
       <HeroSction />
       <CraftingTrendsSection />
       <NavigatingStyleloom />
+      <ElevateStyleSection />
       
     </Container>
   );
