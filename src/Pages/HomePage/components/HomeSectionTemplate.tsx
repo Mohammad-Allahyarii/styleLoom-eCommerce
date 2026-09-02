@@ -5,6 +5,17 @@ import DashedLine from '@/components/dashedLine/DashedLine';
 import SectionContainer from '@/components/sectionContainer/SectionContainer';
 import useMediaQuery from '@/hooks/useMediaQuery';
 
+
+const gridColsMap: Record<number, string> = {
+  1: 'md:grid-cols-1',
+  2: 'md:grid-cols-2',
+  3: 'md:grid-cols-3',
+  4: 'md:grid-cols-4',
+  5: 'md:grid-cols-5',
+  6: 'md:grid-cols-6',
+};
+
+
 interface PropsType {
   itemsElement: ReactNode[];
   indexedInMobile?: number;
@@ -22,7 +33,7 @@ const HomeSectionTemplate = ({
   itemsPerRow = 3,
   headerInfo
 }: PropsType) => {
-  const isMobile = useMediaQuery('(max-width:396px)');
+  const isMobile = useMediaQuery('(max-width:420px)');
 
   const verticalDividers = Array.from(
     { length: itemsPerRow - 1 },
@@ -40,7 +51,7 @@ const HomeSectionTemplate = ({
       />
       <DashedLine />
 
-      <div className={`grid grid-cols-1 md:grid-cols-${itemsPerRow} relative`}>
+      <div className={`grid grid-cols-1 ${gridColsMap[itemsPerRow]} relative`}>
         {isMobile &&
           itemsElement
             .slice(0, isMobile ? indexedInMobile : indexedInDesktop)
