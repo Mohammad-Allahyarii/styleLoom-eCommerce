@@ -29,7 +29,7 @@ const Button = ({
     <motion.button
       className={clsx(
         buttonClass,
-        `max-w-max rounded-xl relative py-2.5 px-5 cursor-pointer transition-all duration-300 ease-in-out text-[16px] lg:text-[16px] ${className}`,
+        `min-w-max rounded-xl relative py-2.5 px-5 flex justify-center items-center gap-1 cursor-pointer transition-all duration-300 ease-in-out text-[16px] lg:text-[16px] ${className}`,
       )}
       onClick={onClick}
       style={{
