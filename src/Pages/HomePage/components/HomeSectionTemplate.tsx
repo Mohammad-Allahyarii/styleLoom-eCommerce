@@ -28,6 +28,7 @@ interface PropsType {
   headerInfo: { title: string; description: string };
   viewAllButton?: Boolean;
   viewAllLink?: string;
+  otherHeaderNodes?: ReactNode
 }
 
 const HomeSectionTemplate = ({
@@ -40,6 +41,7 @@ const HomeSectionTemplate = ({
   headerInfo,
   viewAllButton = false,
   viewAllLink,
+  otherHeaderNodes,
 }: PropsType) => {
   const isMobile = useMediaQuery('(max-width:420px)');
 
@@ -69,6 +71,7 @@ const HomeSectionTemplate = ({
         title={headerInfo.title}
         description={headerInfo.description}
         imgAdress={headerHomeSectionImage}
+        otherNodes={otherHeaderNodes}
       />
       <DashedLine />
 
