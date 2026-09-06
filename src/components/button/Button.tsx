@@ -55,8 +55,7 @@ const Button = ({
 };
 
 const classByVariant = {
-  primary:
-    'bg-brown-60 hover:bg-brown-65 text-dark-06 font-roboto-mono-medium  ',
+  primary: 'bg-brown-60 hover:bg-brown-65 text-dark-06 font-roboto-mono-medium',
   secondary: 'bg-dark-12 text-absolute-white font-roboto-regular ',
   cornerBordered:
     'border-2 border-dashed border-dark-25 bg-dark-12 text-absolute-white font-roboto-regular ',
