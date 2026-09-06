@@ -108,7 +108,6 @@ const HomeSectionTemplate = ({
         )}
       </div>
 
-      <DashedLine />
       {viewAllButton && isMobile && (
         <Link
           to={`${viewAllLink}`}
