@@ -267,13 +267,17 @@ export const USER_REVIEWS: USER_REVIEW_TYPE[] = [
 
 // FAQ
 
+export const FAQ_CATEGORIES = ["all", "ordering", "shipping", "returns", "support"] as const;
+
+
+export type CategoriesType = (typeof FAQ_CATEGORIES)[number];
+
 export interface FAQ_TYPE {
   id: number;
-  questionType: "all" | "ordering" | "shipping" | "returns" | "support"
+  questionType: CategoriesType
   question: string;
   answre: string;
 }
-
 export const FAQS: FAQ_TYPE[] = [
   // ============ ORDERING (6 items) ============
   {
@@ -315,37 +319,37 @@ export const FAQS: FAQ_TYPE[] = [
 
   // ============ SHIPPING (6 items) ============
   {
-    id: 1,
+    id: 7,
     questionType: "shipping",
     question: "How can I place an order on StyleLoom?",
     answre: "Ordering is easy! Simply browse our website, add items to your cart, and proceed to checkout. Follow the prompts to enter your details and complete your purchase."
   },
   {
-    id: 2,
+    id: 8,
     questionType: "shipping",
     question: "What payment methods do you accept?",
     answre: "We accept a variety of payment methods, including credit/debit cards, net banking, and select digital wallets. Choose the option that suits you best during checkout."
   },
   {
-    id: 3,
+    id: 9,
     questionType: "shipping",
     question: "How can I modify or cancel my order after placing it?",
     answre: "Unfortunately, once an order is confirmed, modifications or cancellations may not be possible. Please review your order carefully before completing the purchase."
   },
   {
-    id: 4,
+    id: 10,
     questionType: "shipping",
     question: "How do I initiate a return?",
     answre: "Visit our Returns page and follow the provided instructions. Ensure your item meets our return criteria, and our team will guide you through the process."
   },
   {
-    id: 5,
+    id: 11,
     questionType: "shipping",
     question: "How can I track my order?",
     answre: "Once your order is dispatched, you'll receive a tracking number via email. Use this number to track your package in real-time on our website."
   },
   {
-    id: 6,
+    id: 12,
     questionType: "shipping",
     question: "Do you offer exchanges for products?",
     answre: "At this time, we don't offer direct product exchanges. If you'd like a different item, please initiate a return and place a new order."
