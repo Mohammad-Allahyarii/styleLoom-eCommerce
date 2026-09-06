@@ -1,7 +1,7 @@
 
 import MainAppLayout from "@/Layouts/MainAppLayou/MainAppLayout"
-import { useState } from "react"
 import HomePage from "@/Pages/HomePage/HomePage"
+import ProductsPage from "@/Pages/ProductsPage/ProductsPage"
 import { createBrowserRouter } from "react-router"
 
 
@@ -15,7 +15,12 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />
-      }
+      },
+      {
+        path: "/products",
+        element: <ProductsPage />
+      },
+
     ]
   }
 ])
