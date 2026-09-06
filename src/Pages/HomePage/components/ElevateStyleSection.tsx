@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { MoveUpRight } from 'lucide-react';
 
 import HomeSectionTemplate from '@/Pages/HomePage/components/HomeSectionTemplate';
+import HEADER_IMAGE from '@/assets/images/elevate-section/Abstract Design.svg';
 import Button from '@/components/button/Button';
 import DashedBox from '@/components/dashedBox/DashedBox';
 import { PRODUCTS, type PRODUCT_type } from '@/constants/constants';
@@ -31,15 +32,19 @@ const ElevateProductCard = ({ product }: { product: PRODUCT_type }) => {
         {product.title}
       </h6>
 
-      <p className='flex items-center gap-4 mt-2.5'>
+      <p className="flex items-center gap-4 mt-2.5">
         <span>
-          <span className="text-grey-50 font-roboto-mono-regular text-[14px]">Fit •</span>{' '}
+          <span className="text-grey-50 font-roboto-mono-regular text-[14px]">
+            Fit •
+          </span>{' '}
           <span className="text-grey-80 font-roboto-mono-medium text-[16px]">
             {product.ClotheSize}
           </span>
         </span>
         <span>
-          <span className="text-grey-50 font-roboto-mono-regular text-[14px]">Price •</span>{' '}
+          <span className="text-grey-50 font-roboto-mono-regular text-[14px]">
+            Price •
+          </span>{' '}
           <span className="text-grey-80 font-roboto-mono-medium text-[16px]">
             ${product.price}
           </span>
@@ -65,7 +70,7 @@ const ElevateStyleSection = () => {
     );
   }, [currentSelectedCategory]);
 
-  const renderedProducts = filteredProducts.slice(0,6).map((product) => {
+  const renderedProducts = filteredProducts.slice(0, 6).map((product) => {
     return <ElevateProductCard product={product} />;
   });
 
@@ -76,6 +81,9 @@ const ElevateStyleSection = () => {
         title: 'Elevate Your Style with Our Latest Collection',
         description: 'Each piece is crafted to enhance your fashion statement.',
       }}
+      headerHomeSectionImage={HEADER_IMAGE}
+      viewAllButton
+      viewAllLink={'/products'}
     />
   );
 };
