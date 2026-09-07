@@ -1,5 +1,5 @@
-import HomeSectionTemplate from '@/Pages/HomePage/components/HomeSectionTemplate';
 import HEADER_IMG from '@/assets/images/navigatingStyleloom/section-icon.svg';
+import MainSectionTemplate from '@/components/MainSectionTelmplate/MainSectionTemplate';
 
 const STEPS = [
   {
@@ -62,10 +62,10 @@ const NavigatingStyleloom = () => {
   ));
 
   return (
-    <HomeSectionTemplate
+    <MainSectionTemplate
       itemsElement={craftItemsElement}
       itemsPerRow={4}
-      headerHomeSectionImage={HEADER_IMG}
+      HeaderMainSectionTemplateImage={HEADER_IMG}
       headerInfo={{
         title: 'Navigating the StyleLoom Fashion Journey.',
         description:

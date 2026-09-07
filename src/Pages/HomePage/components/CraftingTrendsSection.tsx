@@ -1,5 +1,5 @@
-import HomeSectionTemplate from '@/Pages/HomePage/components/HomeSectionTemplate';
 import TrendCraftCard from '@/Pages/HomePage/components/TrendCraftCard';
+import MainSectionTemplate from '@/components/MainSectionTelmplate/MainSectionTemplate';
 import { CRAFTING_TREND_SECTION } from '@/constants/constants';
 
 const CraftingTrendsSection = () => {
@@ -9,7 +9,7 @@ const CraftingTrendsSection = () => {
   ));
 
   return (
-    <HomeSectionTemplate
+    <MainSectionTemplate
       itemsElement={craftItemsElement}
       headerInfo={{
         title: 'Crafting Trends, Inspiring Confidence',
