@@ -32,9 +32,6 @@ function useMediaQuery(query: string): boolean {
 
 export default useMediaQuery;
 
-
-
-
 // use case
 
 //  const isMobile = useMediaQuery('(max-width: 767px)');

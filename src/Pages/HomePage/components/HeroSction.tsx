@@ -69,7 +69,10 @@ const HeroSction = () => {
         {/* right side */}
         <div className="grid grid-cols-2 grid-rows-2 relative">
           {HERO_SECTION_DATAS.slice(0, 4).map((item) => (
-            <div key={item.id} className="flex flex-col items-start justify-center py-6 md:py-0 px-7 md:px-10">
+            <div
+              key={item.id}
+              className="flex flex-col items-start justify-center py-6 md:py-0 px-7 md:px-10"
+            >
               <h6 className="font-roboto-medium text-[30px] md:text-[40px] text-absolute-white">
                 {item.title}
               </h6>

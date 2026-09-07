@@ -1,8 +1,6 @@
-import type { CRAFTING_TREND_SECTION_type } from "@/constants/constants";
+import type { CRAFTING_TREND_SECTION_type } from '@/constants/constants';
 
-
-
-const TrendCraftCard = ({item}: {item: CRAFTING_TREND_SECTION_type}) => {
+const TrendCraftCard = ({ item }: { item: CRAFTING_TREND_SECTION_type }) => {
   return (
     <div className="relative px-7.5 py-7.5 flex flex-col justify-start items-start gap-6 ">
       {/* absolute image  */}

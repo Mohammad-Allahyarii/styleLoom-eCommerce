@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import FAQSCetegoiesButtons from '@/Pages/HomePage/components/FaqSection/FAQSCetegoiesButtons';
 import FaqCard from '@/Pages/HomePage/components/FaqSection/FaqCard';
-import HomeSectionTemplate from '@/Pages/HomePage/components/HomeSectionTemplate';
 import HEADER_IMAGE from '@/assets/images/faqs/Vector.svg';
+import FilterButtons from '@/components/FilterButtons/FilterButtons';
+import MainSectionTemplate from '@/components/MainSectionTelmplate/MainSectionTemplate';
 import {
   type CategoriesType,
   FAQS,
@@ -36,7 +36,7 @@ const FaqSection = () => {
   }, [currentQuestionType]);
 
   return (
-    <HomeSectionTemplate
+    <MainSectionTemplate
       itemsElement={faqElements}
       headerInfo={{
         title: 'Have Questions? We Have Answers.',
@@ -45,12 +45,13 @@ const FaqSection = () => {
       }}
       itemsPerRow={2}
       rowsCount={3}
-      headerHomeSectionImage={HEADER_IMAGE}
+      HeaderMainSectionTemplateImage={HEADER_IMAGE}
       otherHeaderNodes={
-        <FAQSCetegoiesButtons
-          currentQuestionType={currentQuestionType}
-          setCurrentQuestionType={setCurrentQuestionType}
-          categories={[...FAQ_CATEGORIES]}
+        <FilterButtons
+          value={currentQuestionType}
+          onChange={setCurrentQuestionType}
+          options={[...FAQ_CATEGORIES]}
+          getLabel={(option) => option}
         />
       }
     />

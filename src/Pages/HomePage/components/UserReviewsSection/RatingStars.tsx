@@ -1,4 +1,4 @@
-import { Star } from "lucide-react";
+import { Star } from 'lucide-react';
 
 interface RatingStarsProps {
   rate: number;
@@ -17,10 +17,7 @@ export default function RatingStars({
         const starValue = index + 1;
 
         // filled stars: 1, half-filled stars: 0.5, empty stars: 0
-        const fillPercentage = Math.min(
-          Math.max(rate - index, 0),
-          1
-        );
+        const fillPercentage = Math.min(Math.max(rate - index, 0), 1);
 
         return (
           <div
@@ -44,10 +41,7 @@ export default function RatingStars({
                 width: `${fillPercentage * 100}%`,
               }}
             >
-              <Star
-                size={size}
-                className="fill-yellow-400 text-yellow-400"
-              />
+              <Star size={size} className="fill-yellow-400 text-yellow-400" />
             </div>
           </div>
         );
@@ -55,4 +49,3 @@ export default function RatingStars({
     </div>
   );
 }
-

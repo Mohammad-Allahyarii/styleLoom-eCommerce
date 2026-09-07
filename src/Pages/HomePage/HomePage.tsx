@@ -1,12 +1,8 @@
-import Container from "@/components/container/Container";
-import CraftingTrendsSection from "@/Pages/HomePage/components/CraftingTrendsSection";
-import CTABannerSection from "@/Pages/HomePage/components/CTABannerSection/CTABannerSection";
-import ElevateStyleSection from "@/Pages/HomePage/components/ElevateStyleSection";
-import FaqSection from "@/Pages/HomePage/components/FaqSection/FaqSection";
-import HeroSction from "@/Pages/HomePage/components/HeroSction";
-import NavigatingStyleloom from "@/Pages/HomePage/components/NavigatingStyleloom";
-import UserReviewsSection from "@/Pages/HomePage/components/UserReviewsSection/UserReviewsSection";
-
+import CraftingTrendsSection from '@/Pages/HomePage/components/CraftingTrendsSection';
+import ElevateStyleSection from '@/Pages/HomePage/components/ElevateStyleSection';
+import HeroSction from '@/Pages/HomePage/components/HeroSction';
+import NavigatingStyleloom from '@/Pages/HomePage/components/NavigatingStyleloom';
+import Container from '@/components/container/Container';
 
 const HomePage = () => {
   return (
@@ -15,10 +11,6 @@ const HomePage = () => {
       <CraftingTrendsSection />
       <NavigatingStyleloom />
       <ElevateStyleSection />
-      <UserReviewsSection />
-      <FaqSection />
-      <CTABannerSection />
-      
     </Container>
   );
 };

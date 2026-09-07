@@ -1,85 +1,79 @@
-@import "tailwindcss";
-
+@import 'tailwindcss';
 
 /* roboto font */
 @font-face {
-    font-family: "roboto-regular";
-    src: url(assets/font/Roboto/static/Roboto-Regular.ttf);
+  font-family: 'roboto-regular';
+  src: url(assets/font/Roboto/static/Roboto-Regular.ttf);
 }
 
 @font-face {
-    font-family: "roboto-medium";
-    src: url(assets/font/Roboto/static/Roboto-Medium.ttf);
+  font-family: 'roboto-medium';
+  src: url(assets/font/Roboto/static/Roboto-Medium.ttf);
 }
 
 @font-face {
-    font-family: "roboto-semibold";
-    src: url(assets/font/Roboto/static/Roboto-SemiBold.ttf);
+  font-family: 'roboto-semibold';
+  src: url(assets/font/Roboto/static/Roboto-SemiBold.ttf);
 }
 
 @font-face {
-    font-family: "roboto-bold";
-    src: url(assets/font/Roboto/static/Roboto-Bold.ttf);
+  font-family: 'roboto-bold';
+  src: url(assets/font/Roboto/static/Roboto-Bold.ttf);
 }
 
 /* roboto-mono font */
 @font-face {
-    font-family: "roboto-mono-regular";
-    src: url(assets/font/Roboto_Mono/static/RobotoMono-Regular.ttf);
+  font-family: 'roboto-mono-regular';
+  src: url(assets/font/Roboto_Mono/static/RobotoMono-Regular.ttf);
 }
 
 @font-face {
-    font-family: "roboto-mono-medium";
-    src: url(assets/font/Roboto_Mono/static/RobotoMono-Medium.ttf);
+  font-family: 'roboto-mono-medium';
+  src: url(assets/font/Roboto_Mono/static/RobotoMono-Medium.ttf);
 }
-
-
 
 @theme {
+  --color-absolute-black: #000000;
+  --color-absolute-white: #ffffff;
 
-    --color-absolute-black: #000000;
-    --color-absolute-white: #ffffff;
+  --color-brown-60: #ae9b84;
+  --color-brown-65: #b8a893;
+  --color-brown-70: #c2b4a3;
+  --color-brown-80: #d6cdc2;
+  --color-brown-90: #ebe6e0;
+  --color-brown-95: #f5f3f0;
+  --color-brown-97: #f9f8f6;
+  --color-brown-99: #fdfdfc;
 
-    --color-brown-60: #AE9B84;
-    --color-brown-65: #B8A893;
-    --color-brown-70: #C2B4A3;
-    --color-brown-80: #D6CDC2;
-    --color-brown-90: #EBE6E0;
-    --color-brown-95: #F5F3F0;
-    --color-brown-97: #F9F8F6;
-    --color-brown-99: #FDFDFC;
+  --color-dark-06: #0f0f0f;
+  --color-dark-10: #1a1a1a;
+  --color-dark-12: #1f1f1f;
+  --color-dark-15: #262626;
+  --color-dark-20: #333333;
+  --color-dark-25: #404040;
+  --color-dark-30: #4d4d4d;
+  --color-dark-35: #595959;
 
-    --color-dark-06: #0F0F0F;
-    --color-dark-10: #1A1A1A;
-    --color-dark-12: #1F1F1F;
-    --color-dark-15: #262626;
-    --color-dark-20: #333333;
-    --color-dark-25: #404040;
-    --color-dark-30: #4D4D4D;
-    --color-dark-35: #595959;
+  --color-grey-40: #676665;
+  --color-grey-50: #81807e;
+  --color-grey-70: #b3b3b2;
+  --color-grey-80: #cccccc;
+  --color-grey-90: #e6e6e6;
+  --color-grey-95: #f2f2f2;
+  --color-grey-97: #f7f7f7;
+  --color-grey-99: #fcfcfc;
 
-    --color-grey-40: #676665;
-    --color-grey-50: #81807E;
-    --color-grey-70: #B3B3B2;
-    --color-grey-80: #CCCCCC;
-    --color-grey-90: #E6E6E6;
-    --color-grey-95: #F2F2F2;
-    --color-grey-97: #F7F7F7;
-    --color-grey-99: #FCFCFC;
+  --font-roboto-regular: 'roboto-regular';
+  --font-roboto-medium: 'roboto-medium';
+  --font-roboto-semibold: 'roboto-semibold';
+  --font-roboto-bold: 'roboto-bold';
 
-
-    --font-roboto-regular: "roboto-regular";
-    --font-roboto-medium: "roboto-medium";
-    --font-roboto-semibold: "roboto-semibold";
-    --font-roboto-bold: "roboto-bold";
-
-    --font-roboto-mono-regular: "roboto-mono-regular";
-    --font-roboto-mono-medium: "roboto-mono-medium";
+  --font-roboto-mono-regular: 'roboto-mono-regular';
+  --font-roboto-mono-medium: 'roboto-mono-medium';
 }
 
-
 body {
-    @apply bg-dark-06 caret-brown-60;
+  @apply bg-dark-06 caret-brown-60;
 }
 
 @keyframes ticker-slide {

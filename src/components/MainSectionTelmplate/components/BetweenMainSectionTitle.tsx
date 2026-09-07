@@ -15,8 +15,7 @@ interface Props_type {
 }
 
 const BetweenMainSectionTitle = ({ title, link }: Props_type) => {
-
-  const isMobile = useMediaQuery("(max-width:420px)")
+  const isMobile = useMediaQuery('(max-width:420px)');
 
   return (
     <>

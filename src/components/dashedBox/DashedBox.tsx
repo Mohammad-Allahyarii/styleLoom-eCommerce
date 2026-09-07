@@ -1,15 +1,20 @@
-import clsx, { type ClassValue } from "clsx";
-import type { ElementType } from "react";
+import type { ElementType } from 'react';
 
+import clsx, { type ClassValue } from 'clsx';
 
 type propsType = {
   as?: ElementType;
   radius?: number;
-  className?: Omit<ClassValue, "rounded">;
+  className?: Omit<ClassValue, 'rounded'>;
   children: React.ReactNode;
 };
 
-const DashedBox = ({ as: Element = 'div', radius = 8, className, children }: propsType) => {
+const DashedBox = ({
+  as: Element = 'div',
+  radius = 8,
+  className,
+  children,
+}: propsType) => {
   return (
     <Element
       className={clsx(className)}

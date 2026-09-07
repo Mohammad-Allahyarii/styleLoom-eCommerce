@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router';
+
 import { Menu, ShoppingCart } from 'lucide-react';
 
 import logo from '@/assets/logos/Logo.svg';
@@ -14,8 +16,21 @@ const LayoutNavbar = () => {
       >
         {/* left */}
         <div className=" hidden md:flex items-center gap-3">
-          <Button variant="secondary">Home</Button>
-          <Button variant="bordered">Products</Button>
+          <NavLink to="/">
+            {({ isActive }) => (
+              <Button variant={isActive ? 'secondary' : 'bordered'}>
+                Home
+              </Button>
+            )}
+          </NavLink>
+
+          <NavLink to="products">
+            {({ isActive }) => (
+              <Button variant={isActive ? 'secondary' : 'bordered'}>
+                Products
+              </Button>
+            )}
+          </NavLink>
         </div>
 
         {/* center */}

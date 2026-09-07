@@ -6,7 +6,11 @@ type DashedLineProps = {
   style?: React.CSSProperties;
 };
 
-const DashedLine = ({ axis = 'horizontal', className, style }: DashedLineProps) => {
+const DashedLine = ({
+  axis = 'horizontal',
+  className,
+  style,
+}: DashedLineProps) => {
   const isHorizontal = axis === 'horizontal';
 
   return (
