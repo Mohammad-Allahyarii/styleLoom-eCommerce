@@ -130,7 +130,7 @@ export const PRODUCTS: PRODUCT_type[] = [
   {
     id: 1,
     image: product_image_1,
-    slug: null,
+    slug: "1",
     title: 'Timeless A-line Evening Dress',
     price: '109.99',
     ClotheSize: 'Ankle-length',
@@ -140,7 +140,7 @@ export const PRODUCTS: PRODUCT_type[] = [
   {
     id: 2,
     image: product_image_2,
-    slug: null,
+    slug: "2",
     title: 'Floral Bloom Maxi Dress',
     price: '54.99',
     ClotheSize: 'Slim Fit',
@@ -150,7 +150,7 @@ export const PRODUCTS: PRODUCT_type[] = [
   {
     id: 3,
     image: product_image_3,
-    slug: null,
+    slug: "3",
     title: 'Elegant Evening Gown',
     price: '89.99',
     ClotheSize: 'Flowing skirt',
@@ -160,7 +160,7 @@ export const PRODUCTS: PRODUCT_type[] = [
   {
     id: 4,
     image: product_image_4,
-    slug: null,
+    slug: "4",
     title: 'Urban Chic Handbag',
     price: '49.99',
     ClotheSize: 'Spacious',
@@ -170,7 +170,7 @@ export const PRODUCTS: PRODUCT_type[] = [
   {
     id: 5,
     image: product_image_5,
-    slug: null,
+    slug: "5",
     title: 'Sophisticate Sun Hat',
     price: '24.99',
     ClotheSize: 'One size fits all',
@@ -180,7 +180,7 @@ export const PRODUCTS: PRODUCT_type[] = [
   {
     id: 6,
     image: product_image_6,
-    slug: null,
+    slug: "6",
     title: 'Boho Chic Printed Scarf',
     price: '19.99',
     ClotheSize: 'Lightweight',
