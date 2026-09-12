@@ -8,7 +8,7 @@ import useMediaQuery from '@/hooks/useMediaQuery';
 
 interface Props_type {
   title: string;
-  link: {
+  link?: {
     text: string;
     url: string;
   };
