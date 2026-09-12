@@ -1,11 +1,11 @@
 import { ArrowUpRight } from 'lucide-react';
 
+import PolicyItemCard from '@/Pages/ContactPage/components/PolicyItemCard';
 import ContentMainSectionTemplate from '@/components/MainSectionTelmplate/components/ContentMainSectionTemplate';
 import Button from '@/components/button/Button';
 import DashedLine from '@/components/dashedLine/DashedLine';
 import SectionContainer from '@/components/sectionContainer/SectionContainer';
 import type { PolicyItemType } from '@/constants/constants';
-import PolicyItemCard from '@/Pages/ContactPage/components/PolicyItemCard';
 
 interface PolicySectionProps {
   title: string;
@@ -29,6 +29,7 @@ const PolicySection = ({
         </h2>
 
         <Button
+          leftIcon={false}
           variant="cornerBordered"
           icon={ArrowUpRight}
           onClick={onReadPolicy}
