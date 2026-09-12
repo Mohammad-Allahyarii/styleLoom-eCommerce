@@ -1,3 +1,13 @@
+import CONTACT_WAY_EMAIL from '@/assets/images/contact-us/email-icon.svg';
+import CONTACT_WAY_EMAIL_SIDE_ICON from '@/assets/images/contact-us/email-side-icon.svg';
+import CONTACT_WAY_LOCATION from '@/assets/images/contact-us/location-icon.svg';
+import CONTACT_WAY_LOCATION_SIDE_ICON from '@/assets/images/contact-us/location-side-icon.svg';
+import CONTACT_WAY_PHONE from '@/assets/images/contact-us/phone-icon.svg';
+import CONTACT_WAY_PHONE_SIDE_ICON from '@/assets/images/contact-us/phone-side-icon.svg';
+// contact-up - return policy
+import ELIGIBILITY_ICON from '@/assets/images/contact-us/return policy/eng.svg';
+import PROCESS_ICON from '@/assets/images/contact-us/return policy/process.svg';
+import REFUND_ICON from '@/assets/images/contact-us/return policy/refund.svg';
 import crafting_main_icon_1 from '@/assets/images/crafting-trend/1-crafting-trend-main.svg';
 import crafting_icon_1 from '@/assets/images/crafting-trend/1-crafting-trend.svg';
 import crafting_main_icon_2 from '@/assets/images/crafting-trend/2-crafting-trend-main.svg';
@@ -24,6 +34,10 @@ import user_review_profile_3 from '@/assets/images/userReview-section/prof-3.svg
 import user_review_profile_4 from '@/assets/images/userReview-section/prof-4.svg';
 import user_review_profile_5 from '@/assets/images/userReview-section/prof-5.svg';
 import user_review_profile_6 from '@/assets/images/userReview-section/prof-6.svg';
+
+import CANCELLATION_WINDOW_ICON from "@/assets/images/contact-us/cancellation-policy/cancellation-window.svg"
+import CANCELLATION_PROCESS_ICON from "@/assets/images/contact-us/cancellation-policy/cancellation-process.svg"
+import REFUND_TIMELINE_ICON from "@/assets/images/contact-us/cancellation-policy/refund-timeline.svg"
 
 export const HERO_SECTION_TITLE: string = 'Elevate your style with styleloom';
 
@@ -116,7 +130,7 @@ export const PRODUCTS_CATEGORY = ['womenswear', 'accessories', 'kids'] as const;
 export type ProductsCategoryType = (typeof PRODUCTS_CATEGORY)[number];
 
 export interface PRODUCT_type {
-  id: number;
+  id: string;
   image: string;
   slug: string | null;
   title: string;
@@ -128,9 +142,9 @@ export interface PRODUCT_type {
 
 export const PRODUCTS: PRODUCT_type[] = [
   {
-    id: 1,
+    id: '1',
     image: product_image_1,
-    slug: "1",
+    slug: '1',
     title: 'Timeless A-line Evening Dress',
     price: '109.99',
     ClotheSize: 'Ankle-length',
@@ -138,9 +152,9 @@ export const PRODUCTS: PRODUCT_type[] = [
     desc: 'Every garment at StyleLoom is crafted with passion, reflecting our commitment to quality and innovation.',
   },
   {
-    id: 2,
+    id: '2',
     image: product_image_2,
-    slug: "2",
+    slug: '2',
     title: 'Floral Bloom Maxi Dress',
     price: '54.99',
     ClotheSize: 'Slim Fit',
@@ -148,9 +162,9 @@ export const PRODUCTS: PRODUCT_type[] = [
     desc: 'Every garment at StyleLoom is crafted with passion, reflecting our commitment to quality and innovation.',
   },
   {
-    id: 3,
+    id: '3',
     image: product_image_3,
-    slug: "3",
+    slug: '3',
     title: 'Elegant Evening Gown',
     price: '89.99',
     ClotheSize: 'Flowing skirt',
@@ -158,9 +172,9 @@ export const PRODUCTS: PRODUCT_type[] = [
     desc: 'Every garment at StyleLoom is crafted with passion, reflecting our commitment to quality and innovation.',
   },
   {
-    id: 4,
+    id: '4',
     image: product_image_4,
-    slug: "4",
+    slug: '4',
     title: 'Urban Chic Handbag',
     price: '49.99',
     ClotheSize: 'Spacious',
@@ -168,9 +182,9 @@ export const PRODUCTS: PRODUCT_type[] = [
     desc: 'Every garment at StyleLoom is crafted with passion, reflecting our commitment to quality and innovation.',
   },
   {
-    id: 5,
+    id: '5',
     image: product_image_5,
-    slug: "5",
+    slug: '5',
     title: 'Sophisticate Sun Hat',
     price: '24.99',
     ClotheSize: 'One size fits all',
@@ -178,9 +192,9 @@ export const PRODUCTS: PRODUCT_type[] = [
     desc: 'Every garment at StyleLoom is crafted with passion, reflecting our commitment to quality and innovation.',
   },
   {
-    id: 6,
+    id: '6',
     image: product_image_6,
-    slug: "6",
+    slug: '6',
     title: 'Boho Chic Printed Scarf',
     price: '19.99',
     ClotheSize: 'Lightweight',
@@ -449,5 +463,98 @@ export const FAQS: FAQ_TYPE[] = [
     question: 'Where can I find troubleshooting guides?',
     answre:
       "Visit our Help Center on the website where you'll find detailed troubleshooting guides, video tutorials, and step-by-step instructions for common issues.",
+  },
+];
+
+// contact page
+
+export interface PolicyItemType {
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+}
+
+
+export interface ContactWayType {
+  id: string;
+  title: string;
+  info: string;
+  ctaFunc: () => void;
+  mainIconAddress: string;
+  sideIconAddress: string;
+}
+
+export const CONTACT_WAYS: ContactWayType[] = [
+  {
+    id: '1',
+    title: 'Phone',
+    info: '+1 (555) 123-4567',
+    ctaFunc: () => {},
+    mainIconAddress: CONTACT_WAY_PHONE,
+    sideIconAddress: CONTACT_WAY_PHONE_SIDE_ICON,
+  },
+  {
+    id: '2',
+    title: 'Email',
+    info: 'support@StyleLoom.com',
+    ctaFunc: () => {},
+    mainIconAddress: CONTACT_WAY_EMAIL,
+    sideIconAddress: CONTACT_WAY_EMAIL_SIDE_ICON,
+  },
+  {
+    id: '3',
+    title: 'Location',
+    info: 'Get Direction',
+    ctaFunc: () => {},
+    mainIconAddress: CONTACT_WAY_LOCATION,
+    sideIconAddress: CONTACT_WAY_LOCATION_SIDE_ICON,
+  },
+];
+
+export const RETURN_POLICY_ITEMS: PolicyItemType[] = [
+  {
+    id: 'eligibility',
+    icon: ELIGIBILITY_ICON,
+    title: 'Eligibility',
+    description: 'Items must be unused, with tags attached.',
+  },
+  {
+    id: 'process',
+    icon: PROCESS_ICON,
+    title: 'Process',
+    description:
+      'Initiate returns through our Return Center for a smooth process.',
+  },
+  {
+    id: 'refund',
+    icon: REFUND_ICON,
+    title: 'Refund',
+    description:
+      'Expect a refund to your original payment method within 7-10 days.',
+  },
+];
+
+export const CANCELLATION_POLICY_ITEMS: PolicyItemType[] = [
+  {
+    id: '1',
+    icon: CANCELLATION_WINDOW_ICON,
+    title: 'Cancellation Window',
+    description:
+      'Orders can be canceled within 24 hours of placement for a full refund.',
+  },
+  {
+    id: '2',
+    icon: CANCELLATION_PROCESS_ICON,
+    title: 'Cancellation Process',
+    description:
+      'Visit our Order Management section to cancel your order effortlessly.',
+  },
+  {
+    id: '3',
+    icon: REFUND_TIMELINE_ICON,
+    title: 'Refund Timeline',
+    description:
+      'Refunds for canceled orders are processed within 5-7 business days.',
   },
 ];

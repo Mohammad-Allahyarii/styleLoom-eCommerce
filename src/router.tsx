@@ -4,6 +4,7 @@ import MainAppLayout from '@/Layouts/MainAppLayou/MainAppLayout';
 import HomePage from '@/Pages/HomePage/HomePage';
 import ProductsPage from '@/Pages/ProductsPage/ProductsPage';
 import SingleProductPage from '@/Pages/SingleProductPage/SingleProductPage';
+import ContactPage from '@/Pages/ContactPage/ContactPage';
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
       {
         path: '/products/:productID',
         element: <SingleProductPage />,
+      },
+      {
+        path: '/contact-us',
+        element: <ContactPage />,
       },
     ],
   },
