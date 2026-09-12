@@ -1,14 +1,9 @@
 import type { ReactNode } from 'react';
 
-import { Link } from 'react-router';
-
-import { ArrowDown } from 'lucide-react';
-
 import ContentMainSectionTemplate from '@/components/MainSectionTelmplate/components/ContentMainSectionTemplate';
 import HeaderMainSectionTemplate from '@/components/MainSectionTelmplate/components/HeaderMainSectionTemplate';
 import DashedLine from '@/components/dashedLine/DashedLine';
 import SectionContainer from '@/components/sectionContainer/SectionContainer';
-import useMediaQuery from '@/hooks/useMediaQuery';
 
 interface PropsType {
   itemsElement: ReactNode[];
@@ -35,10 +30,6 @@ const MainSectionTemplate = ({
   viewAllLink,
   otherHeaderNodes,
 }: PropsType) => {
-  const isMobile = useMediaQuery('(max-width:420px)');
-
-  // The actual number of rows that will be created based on the displayed items
-
   return (
     <SectionContainer>
       <HeaderMainSectionTemplate
