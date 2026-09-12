@@ -26,6 +26,7 @@ const ContactPage = () => {
             <ContactWayCard key={contactWay.id} contactWayInfo={contactWay} />
           ))}
           itemsPerRow={3}
+          indexedInMobile={3}
         />
       </SectionContainer>
 
