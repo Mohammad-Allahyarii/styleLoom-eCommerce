@@ -1,3 +1,5 @@
+import { PRODUCTS, type PRODUCT_type } from '@/constants/constants';
+
 export function getRandomItems<T>(arr: T[], count: number): T[] {
   const shuffled = [...arr];
 
@@ -7,4 +9,16 @@ export function getRandomItems<T>(arr: T[], count: number): T[] {
   }
 
   return shuffled.slice(0, count);
+}
+
+export function findProductInProducts(
+  productID: string | undefined,
+): PRODUCT_type {
+  if (productID == undefined) {
+    throw Error('wrong product id - product not found');
+  } else {
+    const mainProduct = PRODUCTS.filter((product) => product.id == productID);
+
+    return mainProduct[0];
+  }
 }
