@@ -10,6 +10,7 @@ type PropsType = {
   variant?: 'primary' | 'secondary' | 'cornerBordered' | 'bordered';
   className?: ClassValue;
   onClick?: () => void;
+  leftIcon?: boolean;
 };
 
 const dashedBorderImage = `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%23262626FF' stroke-width='3' stroke-dasharray='3%2c 10' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")`;
@@ -19,6 +20,7 @@ const Button = ({
   icon: Icon,
   variant,
   className,
+  leftIcon = true,
   onClick,
 }: PropsType) => {
   const buttonClass = variant
@@ -39,8 +41,9 @@ const Button = ({
             : 'none',
       }}
     >
+      {Icon && leftIcon && <Icon size={24} strokeWidth={2.5} />}
       {children}
-      {Icon && <Icon size={24} strokeWidth={2.5} />}
+      {Icon && !leftIcon && <Icon size={24} strokeWidth={2.5} />}
 
       {variant === 'cornerBordered' && (
         <>
