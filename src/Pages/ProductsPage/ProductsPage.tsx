@@ -4,7 +4,6 @@ import ProductSection from '@/Pages/ProductsPage/components/ProductSection';
 import HEADER_IMAGE from '@/assets/images/elevate-section/Abstract Design.svg';
 import FilterButtons from '@/components/FilterButtons/FilterButtons';
 import HeaderMainSectionTemplate from '@/components/MainSectionTelmplate/components/HeaderMainSectionTemplate';
-import DashedLine from '@/components/dashedLine/DashedLine';
 import SectionContainer from '@/components/sectionContainer/SectionContainer';
 import { PRODUCTS, PRODUCTS_CATEGORY } from '@/constants/constants';
 
@@ -27,7 +26,21 @@ const ProductsPage = () => {
         }
       />
 
-      <ProductSection products={PRODUCTS.slice(0, 3)} href="" title="" />
+      <ProductSection
+        products={PRODUCTS.slice(0, 3)}
+        href=""
+        title="DRESS COLLECTION"
+      />
+      <ProductSection
+        products={PRODUCTS.slice(3, 6)}
+        href=""
+        title="ACCESSORIES"
+      />
+      <ProductSection
+        products={PRODUCTS.slice(0, 3)}
+        href=""
+        title="BAGS AND HANDBAGS"
+      />
     </SectionContainer>
   );
 };

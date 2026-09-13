@@ -16,14 +16,9 @@ const ProductSection = ({ products, href, title }: propsType) => {
 
   return (
     <div>
-      {/* <DashedLine /> */}
-      {title && (
-        <h4 className="text-[28px] text-absolute-white font-roboto-medium uppercase">
-          {title}
-        </h4>
-      )}
+   
       <BetweenMainSectionTitle
-        title="Dress Collection"
+        title={title}
         link={{ text: 'View All', url: `${href}` }}
       />
       <ContentMainSectionTemplate
