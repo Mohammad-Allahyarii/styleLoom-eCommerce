@@ -33,13 +33,15 @@ const HeroSction = () => {
           src={heroImageMobile}
           alt="hero section image"
         />
-        <Button
-          className="absolute! -bottom-4 left-1/2 -translate-x-1/2  flex items-center gap-1"
-          variant="cornerBordered"
-        >
-          <span className="font-roboto-regular text-sm">Shop Now</span>
-          <SquareArrowOutUpRight size={18} />
-        </Button>
+        <Link to="/products">
+          <Button
+            className="absolute! -bottom-4 left-1/2 -translate-x-1/2  flex items-center gap-1"
+            variant="cornerBordered"
+          >
+            <span className="font-roboto-regular text-sm">Shop Now</span>
+            <SquareArrowOutUpRight size={18} />
+          </Button>
+        </Link>
       </div>
 
       {/* bottom section */}

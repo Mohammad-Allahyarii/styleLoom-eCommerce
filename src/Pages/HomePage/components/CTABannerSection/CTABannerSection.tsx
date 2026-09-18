@@ -1,3 +1,5 @@
+import { Link } from 'react-router';
+
 import { ArrowUpRight } from 'lucide-react';
 
 import Button from '@/components/button/Button';
@@ -20,13 +22,15 @@ const CTABannerSection = () => {
           Your style journey begins here.
         </p>
       </div>
-      <Button
-        icon={ArrowUpRight}
-        variant="secondary"
-        className="py-3.5 w-full md:w-max"
-      >
-        Shop Now
-      </Button>
+    <Link to={'/products'}>
+        <Button
+          icon={ArrowUpRight}
+          variant="secondary"
+          className="py-3.5 w-full md:w-max"
+        >
+          Shop Now
+        </Button>
+      </Link>
     </div>
   );
 };

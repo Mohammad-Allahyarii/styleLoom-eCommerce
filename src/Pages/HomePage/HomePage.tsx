@@ -21,10 +21,6 @@ const HomePage = () => {
           <Section />
         </AnimatedSection>
       ))}
-
-      {/* <CraftingTrendsSection />
-      <NavigatingStyleloom />
-      <ElevateStyleSection /> */}
     </Container>
   );
 };

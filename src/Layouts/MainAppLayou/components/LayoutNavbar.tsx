@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 
 import { Menu, ShoppingCart } from 'lucide-react';
 
@@ -31,18 +31,21 @@ const LayoutNavbar = () => {
               </Button>
             )}
           </NavLink>
+          
         </div>
 
         {/* center */}
-        <div className="">
+        <Link to={"/"} className="">
           <img src={logo} alt="Logo" />
-        </div>
+        </Link>
 
         {/* right */}
         <div className="hidden md:flex justify-end items-center gap-3">
           <Button variant="secondary" icon={ShoppingCart} />
 
-          <Button>Contact</Button>
+          <Link to={"contact-us"}>
+          
+          <Button>Contact</Button></Link>
         </div>
 
         <Button className="aspect-square p-4! md:hidden">
