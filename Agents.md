@@ -6,11 +6,14 @@ Front-end only React app. There is no backend yet: all data comes from mocks.
 UI language is English, layout direction is LTR.
 
 ## Stack
-- Vite + React + TypeScript (strict mode)
-- Tailwind CSS. Check the installed version in `package.json` before writing any Tailwind config or version-specific syntax. v3 and v4 differ; never mix their patterns.
-- Package manager: npm. Never use yarn/pnpm/bun and never create another lockfile.
-- ESLint + Prettier are set up. Follow their config; do not change it.
-- NOT installed (do not add without my approval): router, UI component library, data-fetching library, test runner, form library.
+- Vite + React + TypeScript (strict)
+- Tailwind CSS v4 (CSS-first: theme tokens live in `@theme` in `src/index.css`; there is no tailwind.config file). Never use v3 patterns.
+- npm only.
+- ESLint + Prettier (with an import-sort plugin). Follow the config; do not change it.
+- Installed and allowed: `lucide-react` (icons), `clsx`, router (routes in `router.tsx`).
+- Installed but not used yet: `zustand`. Use only when I approve.
+- NOT installed (ask before adding): UI component library, data-fetching library, test runner, form library.
+
 
 ## Commands
 Confirm the exact script names in `package.json` before relying on them.
@@ -25,10 +28,11 @@ Confirm the exact script names in `package.json` before relying on them.
 3. Never say "done" or "it works" without having run these checks.
 4. If you find unrelated pre-existing errors, mention them; do not fix them.
 
-## Structure
-Follow the existing folder structure. Look at neighboring files before creating new ones.
-Do not create new top-level folders inside `src/` without asking.
-<!-- TODO (optional): paste the output of `tree src -L 2` here so the structure is exact. -->
+## Structure and conventions in this codebase
+- Pages live in `src/Pages/<PageName>/` (capital P, keep exact casing).
+- Shared/mock data lives in `src/constants/constants.ts`.
+- Default exports everywhere. Props typed with a local `PropsType` interface. Use `import type` for types.
+- Design language: dark theme with dashed borders (`DashedBox`, `DashedLine`, `Button` variants), Roboto / Roboto Mono. Reuse `SectionContainer`, `HeaderMainSectionTemplate`, `Button` for new pages. Never edit shared components unless the task says so.
 
 ## Code conventions
 - Function components and hooks only. Match the export style (named/default) used by existing files.
