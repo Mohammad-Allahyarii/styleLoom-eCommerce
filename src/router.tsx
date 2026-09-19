@@ -1,10 +1,11 @@
 import { createBrowserRouter } from 'react-router';
 
 import MainAppLayout from '@/Layouts/MainAppLayou/MainAppLayout';
+import ContactPage from '@/Pages/ContactPage/ContactPage';
 import HomePage from '@/Pages/HomePage/HomePage';
 import ProductsPage from '@/Pages/ProductsPage/ProductsPage';
+import ShoppingCartPage from '@/Pages/ShoppintCart/ShoppingCartPage';
 import SingleProductPage from '@/Pages/SingleProductPage/SingleProductPage';
-import ContactPage from '@/Pages/ContactPage/ContactPage';
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
       {
         path: '/contact-us',
         element: <ContactPage />,
+      },
+      {
+        path: '/shopping-cart',
+        element: <ShoppingCartPage />,
       },
     ],
   },

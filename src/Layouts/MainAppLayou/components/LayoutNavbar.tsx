@@ -31,21 +31,22 @@ const LayoutNavbar = () => {
               </Button>
             )}
           </NavLink>
-          
         </div>
 
         {/* center */}
-        <Link to={"/"} className="">
+        <Link to={'/'} className="">
           <img src={logo} alt="Logo" />
         </Link>
 
         {/* right */}
         <div className="hidden md:flex justify-end items-center gap-3">
-          <Button variant="secondary" icon={ShoppingCart} />
+          <Link to="/shopping-cart">
+            <Button variant="secondary" icon={ShoppingCart} />
+          </Link>
 
-          <Link to={"contact-us"}>
-          
-          <Button>Contact</Button></Link>
+          <Link to={'contact-us'}>
+            <Button>Contact</Button>
+          </Link>
         </div>
 
         <Button className="aspect-square p-4! md:hidden">
