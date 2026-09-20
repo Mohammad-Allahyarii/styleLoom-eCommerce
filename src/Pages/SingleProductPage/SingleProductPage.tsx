@@ -10,7 +10,8 @@ import ProductSizes from '@/Pages/SingleProductPage/components/ProductSizes';
 import type { RatingBreakdownItem } from '@/Pages/SingleProductPage/types/types';
 import DashedLine from '@/components/dashedLine/DashedLine';
 import SectionContainer from '@/components/sectionContainer/SectionContainer';
-import { useCartStore } from '@/stores/cartStore';
+import { getLineId } from '@/stores/cartCalculations';
+import { selectItems, useCartStore } from '@/stores/cartStore';
 import { findProductInProducts, toAddToCartInput } from '@/utils/utils';
 
 // Fallbacks preserve the exact original render when the product data
@@ -39,9 +40,27 @@ const SingleProductPage = () => {
   const { productID } = useParams<{ productID: string }>();
   const product = findProductInProducts(productID);
 
+  const items = useCartStore(selectItems);
   const addItem = useCartStore((state) => state.addItem);
+  const setQuantity = useCartStore((state) => state.setQuantity);
+  const removeItem = useCartStore((state) => state.removeItem);
+
+  // The page's default size (ClotheSize) identifies this product's cart line.
+  const lineId = getLineId(product.id, product.ClotheSize);
+  const quantityInCart =
+    items.find((item) => item.id === lineId)?.quantity ?? 0;
 
   const handleAddToCart = () => addItem(toAddToCartInput(product));
+
+  // The stepper's remove-at-min emits 0, meaning "take the line out".
+  const handleChangeQuantity = (nextQuantity: number) => {
+    if (nextQuantity <= 0) {
+      removeItem(lineId);
+      return;
+    }
+
+    setQuantity(lineId, nextQuantity);
+  };
 
   const images = [product.image, product.image, product.image];
 
@@ -57,6 +76,8 @@ const SingleProductPage = () => {
         inStock={true}
         product={product}
         onAddToCart={handleAddToCart}
+        quantityInCart={quantityInCart}
+        onChangeQuantity={handleChangeQuantity}
       />
 
       <DashedLine />
@@ -77,7 +98,12 @@ const SingleProductPage = () => {
         <section>
           <ProductFeatures features={DEFAULT_FEATURES} />
 
-          <ProductPrice price={product.price} onAddToCart={handleAddToCart} />
+          <ProductPrice
+            price={product.price}
+            onAddToCart={handleAddToCart}
+            quantityInCart={quantityInCart}
+            onChangeQuantity={handleChangeQuantity}
+          />
 
           <ProductSizes sizes={DEFAULT_SIZES} />
 

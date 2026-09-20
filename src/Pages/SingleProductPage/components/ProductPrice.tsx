@@ -1,14 +1,19 @@
-import { ShoppingCart } from 'lucide-react';
-
-import Button from '@/components/button/Button';
+import AddToCartControl from '@/Pages/SingleProductPage/components/AddToCartControl';
 import DashedLine from '@/components/dashedLine/DashedLine';
 
 export interface ProductPriceProps {
   price: number | string;
   onAddToCart?: () => void;
+  quantityInCart?: number;
+  onChangeQuantity?: (nextQuantity: number) => void;
 }
 
-const ProductPrice = ({ price, onAddToCart }: ProductPriceProps) => {
+const ProductPrice = ({
+  price,
+  onAddToCart,
+  quantityInCart = 0,
+  onChangeQuantity,
+}: ProductPriceProps) => {
   return (
     <>
       <div className="p-7.5 md:px-15 md:py-10 flex flex-col md:flex-row gap-4 md:gap-0 items-start md:items-end justify-between">
@@ -27,14 +32,11 @@ const ProductPrice = ({ price, onAddToCart }: ProductPriceProps) => {
           </p>
         </div>
 
-        <Button
-          onClick={onAddToCart}
-          variant="cornerBordered"
-          className="md:w-auto w-full"
-          icon={ShoppingCart}
-        >
-          Add To Cart
-        </Button>
+        <AddToCartControl
+          quantityInCart={quantityInCart}
+          onAdd={onAddToCart}
+          onChangeQuantity={onChangeQuantity}
+        />
       </div>
       <DashedLine />
     </>

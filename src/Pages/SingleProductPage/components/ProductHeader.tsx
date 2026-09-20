@@ -1,5 +1,6 @@
-import { Handbag, ShoppingCart } from 'lucide-react';
+import { Handbag } from 'lucide-react';
 
+import AddToCartControl from '@/Pages/SingleProductPage/components/AddToCartControl';
 import Button from '@/components/button/Button';
 import type { PRODUCT_type } from '@/constants/constants';
 
@@ -9,6 +10,8 @@ export interface ProductHeaderProps {
   inStock: boolean;
   product: PRODUCT_type;
   onAddToCart?: () => void;
+  quantityInCart?: number;
+  onChangeQuantity?: (nextQuantity: number) => void;
 }
 
 const ProductHeader = ({
@@ -16,6 +19,8 @@ const ProductHeader = ({
   inStock,
   product,
   onAddToCart,
+  quantityInCart = 0,
+  onChangeQuantity,
 }: ProductHeaderProps) => {
   return (
     <section className="flex flex-col md:flex-row gap-10   justify-between items-start p-5 md:p-15">
@@ -35,13 +40,11 @@ const ProductHeader = ({
       </div>
       {/* right */}
       <div className="flex gap-5 justify-between w-full md:w-max *:w-full">
-        <Button
-          onClick={onAddToCart}
-          variant="cornerBordered"
-          icon={ShoppingCart}
-        >
-          Add to Cart
-        </Button>
+        <AddToCartControl
+          quantityInCart={quantityInCart}
+          onAdd={onAddToCart}
+          onChangeQuantity={onChangeQuantity}
+        />
         <Button variant="primary" icon={Handbag}>
           Shop Now
         </Button>
