@@ -1,19 +1,68 @@
 import { useState } from 'react';
 
-import { CornerDownRight } from 'lucide-react';
+import { CornerDownRight, X } from 'lucide-react';
+
+import type { PromoResult } from '@/types/cart';
 
 interface PropsType {
   className?: string;
+  appliedPromoCode: string | null;
+  onApply: (code: string) => PromoResult;
+  onRemove: () => void;
 }
 
-const PromoCodeField = ({ className }: PropsType) => {
-  const [promoCode, setPromoCode] = useState('');
-  const [appliedCode, setAppliedCode] = useState('');
+const FEEDBACK_TEXT = {
+  empty: 'Enter a promo code.',
+  invalid: 'Invalid promo code.',
+  'empty-cart': 'Add items to your cart first.',
+} as const;
 
-  // UI only: echoes the code back, no discount logic yet
+const PromoCodeField = ({
+  className,
+  appliedPromoCode,
+  onApply,
+  onRemove,
+}: PropsType) => {
+  const [code, setCode] = useState('');
+  const [feedback, setFeedback] = useState('');
+
+  // The store owns promo logic; this component only surfaces its result.
   const handleApply = () => {
-    setAppliedCode(promoCode.trim());
+    const result = onApply(code);
+
+    if (result.success) {
+      setCode('');
+      setFeedback('');
+      return;
+    }
+
+    setFeedback(FEEDBACK_TEXT[result.reason]);
   };
+
+  if (appliedPromoCode) {
+    return (
+      <div className={className}>
+        <div className="flex items-center justify-between bg-dark-10 rounded-lg py-4 px-3.5 w-full">
+          <p className="font-roboto-mono-regular text-grey-50 text-sm">
+            Code <span className="text-brown-60">{appliedPromoCode}</span>{' '}
+            applied.
+          </p>
+          <button
+            type="button"
+            aria-label={`Remove promo code ${appliedPromoCode}`}
+            onClick={onRemove}
+            className="p-1 rounded text-grey-50 cursor-pointer transition-all duration-300 ease-in-out hover:text-absolute-white hover:bg-dark-10 shrink-0"
+          >
+            <X size={16} />
+          </button>
+        </div>
+
+        <p aria-live="polite" className="sr-only">
+          Code {appliedPromoCode} applied.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className={className}>
@@ -29,8 +78,8 @@ const PromoCodeField = ({ className }: PropsType) => {
         </label>
         <input
           id="promo-code"
-          value={promoCode}
-          onChange={(event) => setPromoCode(event.target.value)}
+          value={code}
+          onChange={(event) => setCode(event.target.value)}
           className="placeholder:text-grey-40 placeholder:font-roboto-mono-regular placeholder:text-sm w-full outline-none text-absolute-white font-roboto-mono-regular text-sm"
           placeholder="Promo Code..."
         />
@@ -43,12 +92,12 @@ const PromoCodeField = ({ className }: PropsType) => {
         </button>
       </form>
 
-      {appliedCode && (
-        <p className="font-roboto-mono-regular text-grey-50 text-sm mt-3">
-          Code <span className="text-brown-60">{appliedCode}</span> applied —
-          discounts are coming soon.
-        </p>
-      )}
+      <p
+        aria-live="polite"
+        className="font-roboto-mono-regular text-grey-50 text-sm mt-3 min-h-5"
+      >
+        {feedback}
+      </p>
     </div>
   );
 };

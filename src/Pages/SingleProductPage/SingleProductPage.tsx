@@ -1,16 +1,17 @@
 import { useParams } from 'react-router';
 
+import ProductFeatures from '@/Pages/SingleProductPage/components/ProductFeatures';
+import ProductGallery from '@/Pages/SingleProductPage/components/ProductGallery';
+import ProductHeader from '@/Pages/SingleProductPage/components/ProductHeader';
+import ProductMaterialsCare from '@/Pages/SingleProductPage/components/ProductMaterialsCare';
+import ProductPrice from '@/Pages/SingleProductPage/components/ProductPrice';
+import ProductRatingsSection from '@/Pages/SingleProductPage/components/ProductRatingsSection';
+import ProductSizes from '@/Pages/SingleProductPage/components/ProductSizes';
+import type { RatingBreakdownItem } from '@/Pages/SingleProductPage/types/types';
 import DashedLine from '@/components/dashedLine/DashedLine';
 import SectionContainer from '@/components/sectionContainer/SectionContainer';
-import { findProductInProducts } from '@/utils/utils';
-import type { RatingBreakdownItem } from '@/Pages/SingleProductPage/types/types';
-import ProductHeader from '@/Pages/SingleProductPage/components/ProductHeader';
-import ProductGallery from '@/Pages/SingleProductPage/components/ProductGallery';
-import ProductMaterialsCare from '@/Pages/SingleProductPage/components/ProductMaterialsCare';
-import ProductFeatures from '@/Pages/SingleProductPage/components/ProductFeatures';
-import ProductPrice from '@/Pages/SingleProductPage/components/ProductPrice';
-import ProductSizes from '@/Pages/SingleProductPage/components/ProductSizes';
-import ProductRatingsSection from '@/Pages/SingleProductPage/components/ProductRatingsSection';
+import { useCartStore } from '@/stores/cartStore';
+import { findProductInProducts, toAddToCartInput } from '@/utils/utils';
 
 // Fallbacks preserve the exact original render when the product data
 // doesn't (yet) provide these fields, while letting each section become
@@ -38,6 +39,10 @@ const SingleProductPage = () => {
   const { productID } = useParams<{ productID: string }>();
   const product = findProductInProducts(productID);
 
+  const addItem = useCartStore((state) => state.addItem);
+
+  const handleAddToCart = () => addItem(toAddToCartInput(product));
+
   const images = [product.image, product.image, product.image];
 
   // const images = product.image?.length
@@ -50,6 +55,8 @@ const SingleProductPage = () => {
         title={product.title ?? 'Elegant Evening Gown'}
         description={'Fitted bodice, flowing skirt'}
         inStock={true}
+        product={product}
+        onAddToCart={handleAddToCart}
       />
 
       <DashedLine />
@@ -70,7 +77,7 @@ const SingleProductPage = () => {
         <section>
           <ProductFeatures features={DEFAULT_FEATURES} />
 
-          <ProductPrice price={product.price} />
+          <ProductPrice price={product.price} onAddToCart={handleAddToCart} />
 
           <ProductSizes sizes={DEFAULT_SIZES} />
 

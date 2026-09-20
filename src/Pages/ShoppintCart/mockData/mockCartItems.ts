@@ -1,8 +1,8 @@
-import type { CartItemType } from '@/Pages/ShoppintCart/types/cart';
 import product_image_1 from '@/assets/images/product/1.png';
 import product_image_2 from '@/assets/images/product/2.png';
 import product_image_3 from '@/assets/images/product/3.png';
 import product_image_4 from '@/assets/images/product/4.png';
+import type { CartItemType } from '@/types/cart';
 
 // Static mock data for the Shopping Cart page. A data-access layer
 // (async fetch/update/remove) will replace this in a later step.

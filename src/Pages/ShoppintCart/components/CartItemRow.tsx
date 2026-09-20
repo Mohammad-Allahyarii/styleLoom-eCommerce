@@ -1,8 +1,8 @@
 import { X } from 'lucide-react';
 
 import QuantityStepper from '@/Pages/ShoppintCart/components/QuantityStepper';
-import type { CartItemType } from '@/Pages/ShoppintCart/types/cart';
 import DashedBox from '@/components/dashedBox/DashedBox';
+import type { CartItemType } from '@/types/cart';
 
 interface PropsType {
   item: CartItemType;

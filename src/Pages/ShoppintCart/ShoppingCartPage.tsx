@@ -1,39 +1,30 @@
-import { useState } from 'react';
-
 import CartItemRow from '@/Pages/ShoppintCart/components/CartItemRow';
 import EmptyCart from '@/Pages/ShoppintCart/components/EmptyCart';
 import OrderSummary from '@/Pages/ShoppintCart/components/OrderSummary';
-import { CART_ITEMS } from '@/Pages/ShoppintCart/mockData/mockCartItems';
-import type { CartItemType } from '@/Pages/ShoppintCart/types/cart';
 import HEADER_IMAGE from '@/assets/images/elevate-section/Abstract Design.svg';
 import HeaderMainSectionTemplate from '@/components/MainSectionTelmplate/components/HeaderMainSectionTemplate';
 import DashedLine from '@/components/dashedLine/DashedLine';
 import SectionContainer from '@/components/sectionContainer/SectionContainer';
-
-const QUANTITY_MIN = 1;
-const QUANTITY_MAX = 99;
+import {
+  selectAppliedPromoCode,
+  selectDiscount,
+  selectItems,
+  selectSubtotal,
+  selectTotal,
+  useCartStore,
+} from '@/stores/cartStore';
 
 const ShoppingCartPage = () => {
-  const [cartItems, setCartItems] = useState<CartItemType[]>(CART_ITEMS);
+  const items = useCartStore(selectItems);
+  const subtotal = useCartStore(selectSubtotal);
+  const discount = useCartStore(selectDiscount);
+  const total = useCartStore(selectTotal);
+  const appliedPromoCode = useCartStore(selectAppliedPromoCode);
 
-  const changeQuantity = (id: string, nextQuantity: number) => {
-    const clampedQuantity = Math.min(
-      Math.max(nextQuantity, QUANTITY_MIN),
-      QUANTITY_MAX,
-    );
-
-    setCartItems((currentItems) =>
-      currentItems.map((item) =>
-        item.id === id ? { ...item, quantity: clampedQuantity } : item,
-      ),
-    );
-  };
-
-  const removeItem = (id: string) => {
-    setCartItems((currentItems) =>
-      currentItems.filter((item) => item.id !== id),
-    );
-  };
+  const setQuantity = useCartStore((state) => state.setQuantity);
+  const removeItem = useCartStore((state) => state.removeItem);
+  const applyPromoCode = useCartStore((state) => state.applyPromoCode);
+  const removePromoCode = useCartStore((state) => state.removePromoCode);
 
   return (
     <SectionContainer>
@@ -43,26 +34,33 @@ const ShoppingCartPage = () => {
         imgAdress={HEADER_IMAGE}
       />
       <DashedLine />
-      {cartItems.length === 0 ? (
+      {items.length === 0 ? (
         <EmptyCart />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-[1fr_360px] relative">
           <ul className="relative flex flex-col">
-            {cartItems.map((item, index) => (
+            {items.map((item, index) => (
               <li key={item.id}>
                 <CartItemRow
                   item={item}
-                  onChangeQuantity={changeQuantity}
+                  onChangeQuantity={setQuantity}
                   onRemove={removeItem}
                 />
-                {!(cartItems.length == index + 1) && <DashedLine />}
+                {!(items.length == index + 1) && <DashedLine />}
               </li>
             ))}
 
             <DashedLine axis="vertical" className="absolute right-0 top-0" />
           </ul>
 
-          <OrderSummary items={cartItems} />
+          <OrderSummary
+            subtotal={subtotal}
+            discount={discount}
+            total={total}
+            appliedPromoCode={appliedPromoCode}
+            onApplyPromoCode={applyPromoCode}
+            onRemovePromoCode={removePromoCode}
+          />
         </div>
       )}
     </SectionContainer>
