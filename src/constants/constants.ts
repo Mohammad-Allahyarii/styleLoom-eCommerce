@@ -1,3 +1,6 @@
+import CANCELLATION_PROCESS_ICON from '@/assets/images/contact-us/cancellation-policy/cancellation-process.svg';
+import CANCELLATION_WINDOW_ICON from '@/assets/images/contact-us/cancellation-policy/cancellation-window.svg';
+import REFUND_TIMELINE_ICON from '@/assets/images/contact-us/cancellation-policy/refund-timeline.svg';
 import CONTACT_WAY_EMAIL from '@/assets/images/contact-us/email-icon.svg';
 import CONTACT_WAY_EMAIL_SIDE_ICON from '@/assets/images/contact-us/email-side-icon.svg';
 import CONTACT_WAY_LOCATION from '@/assets/images/contact-us/location-icon.svg';
@@ -34,10 +37,6 @@ import user_review_profile_3 from '@/assets/images/userReview-section/prof-3.svg
 import user_review_profile_4 from '@/assets/images/userReview-section/prof-4.svg';
 import user_review_profile_5 from '@/assets/images/userReview-section/prof-5.svg';
 import user_review_profile_6 from '@/assets/images/userReview-section/prof-6.svg';
-
-import CANCELLATION_WINDOW_ICON from "@/assets/images/contact-us/cancellation-policy/cancellation-window.svg"
-import CANCELLATION_PROCESS_ICON from "@/assets/images/contact-us/cancellation-policy/cancellation-process.svg"
-import REFUND_TIMELINE_ICON from "@/assets/images/contact-us/cancellation-policy/refund-timeline.svg"
 
 export const HERO_SECTION_TITLE: string = 'Elevate your style with styleloom';
 
@@ -474,7 +473,6 @@ export interface PolicyItemType {
   title: string;
   description: string;
 }
-
 
 export interface ContactWayType {
   id: string;

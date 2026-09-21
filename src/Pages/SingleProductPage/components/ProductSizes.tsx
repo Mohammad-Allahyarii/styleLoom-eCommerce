@@ -8,7 +8,9 @@ const ProductSizes = ({ sizes }: ProductSizesProps) => {
   return (
     <>
       <div className="p-7.5 md:px-15 md:py-10">
-        <p className="font-roboto-medium text-[20px] text-absolute-white">Available Sizes</p>
+        <p className="font-roboto-medium text-[20px] text-absolute-white">
+          Available Sizes
+        </p>
         <div className="flex items-center justify-start gap-4 mt-4 flex-wrap">
           {sizes.map((size) => (
             <span

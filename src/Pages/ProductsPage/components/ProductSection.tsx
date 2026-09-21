@@ -16,7 +16,6 @@ const ProductSection = ({ products, href, title }: propsType) => {
 
   return (
     <div>
-   
       <BetweenMainSectionTitle
         title={title}
         link={{ text: 'View All', url: `${href}` }}

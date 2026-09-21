@@ -1,5 +1,5 @@
-import DashedLine from '@/components/dashedLine/DashedLine';
 import MATERIAL_IMAGE from '@/assets/images/single-product/material.jpg';
+import DashedLine from '@/components/dashedLine/DashedLine';
 
 /**
  * Generic materials/care/origin information block.
@@ -15,20 +15,25 @@ const ProductMaterialsCare = () => {
       <DashedLine />
 
       <div className="p-7.5 md:px-15 md:py-10">
-        <p className="font-roboto-medium text-[18px] text-absolute-white mb-3">Join Life</p>
+        <p className="font-roboto-medium text-[18px] text-absolute-white mb-3">
+          Join Life
+        </p>
         <p className="font-roboto-regular text-[16px] text-grey-40">
-          Tracing its roots back to ancient Greek draped garments, has evolved through centuries,
-          often crafted from luxurious fabrics like silks, satins, and velvets.
+          Tracing its roots back to ancient Greek draped garments, has evolved
+          through centuries, often crafted from luxurious fabrics like silks,
+          satins, and velvets.
         </p>
       </div>
 
       <DashedLine />
 
       <div className="p-7.5 md:px-15 md:py-10">
-        <p className="font-roboto-medium text-[18px] text-absolute-white mb-3">Materials</p>
+        <p className="font-roboto-medium text-[18px] text-absolute-white mb-3">
+          Materials
+        </p>
         <p className="font-roboto-regular text-[16px] text-grey-40 mb-3">
-          Flowing from Grecian folds to glittering silks, the evening gown has graced centuries in
-          luxury.
+          Flowing from Grecian folds to glittering silks, the evening gown has
+          graced centuries in luxury.
         </p>
 
         <img className="w-full" src={MATERIAL_IMAGE} alt="" />

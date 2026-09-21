@@ -1,11 +1,14 @@
 # AGENTS.md
 
 ## Project
+
 <!-- TODO: replace with 1-2 sentences about what this app does and who uses it. -->
+
 Front-end only React app. There is no backend yet: all data comes from mocks.
 UI language is English, layout direction is LTR.
 
 ## Stack
+
 - Vite + React + TypeScript (strict)
 - Tailwind CSS v4 (CSS-first: theme tokens live in `@theme` in `src/index.css`; there is no tailwind.config file). Never use v3 patterns.
 - npm only.
@@ -14,27 +17,31 @@ UI language is English, layout direction is LTR.
 - Installed but not used yet: `zustand`. Use only when I approve.
 - NOT installed (ask before adding): UI component library, data-fetching library, test runner, form library.
 
-
 ## Commands
+
 Confirm the exact script names in `package.json` before relying on them.
+
 - Dev server: `npm run dev`
 - Lint: `npm run lint`
 - Type-check + production build: `npm run build`
 - Format check on changed files: `npx prettier --check <files>` (fix with `--write`)
 
 ## After every change
+
 1. Run lint, build, and the Prettier check on changed files. Fix problems you caused.
 2. Report the real results. If you could not run something, say so.
 3. Never say "done" or "it works" without having run these checks.
 4. If you find unrelated pre-existing errors, mention them; do not fix them.
 
 ## Structure and conventions in this codebase
+
 - Pages live in `src/Pages/<PageName>/` (capital P, keep exact casing).
 - Shared/mock data lives in `src/constants/constants.ts`.
 - Default exports everywhere. Props typed with a local `PropsType` interface. Use `import type` for types.
 - Design language: dark theme with dashed borders (`DashedBox`, `DashedLine`, `Button` variants), Roboto / Roboto Mono. Reuse `SectionContainer`, `HeaderMainSectionTemplate`, `Button` for new pages. Never edit shared components unless the task says so.
 
 ## Code conventions
+
 - Function components and hooks only. Match the export style (named/default) used by existing files.
 - TypeScript: no `any`, no `@ts-ignore`, no non-null assertions (`!`) unless unavoidable, and then add a one-line comment explaining why. Type component props explicitly.
 - Reuse existing components, hooks, and utilities. Search the codebase before creating new ones.
@@ -44,11 +51,13 @@ Confirm the exact script names in `package.json` before relying on them.
 - Comments explain "why", never restate the code.
 
 ## State management
+
 - Start with local state (`useState` / `useReducer`), then lift state up, then Context for rarely-changing values.
 - Zustand is allowed only when state must be shared across distant components. Propose it and wait for my approval before installing.
 - If Zustand is approved: one small store per domain, typed, and consumed with selectors (`useStore(s => s.value)`), never the whole store.
 
 ## Styling (Tailwind)
+
 - Use utility classes in `className`. No inline `style` except for truly dynamic values.
 - Do not create new CSS files or use `@apply` unless asked. Extract repeated markup into a component instead.
 - Mobile-first responsive design (base styles first, then `sm:`/`md:`/`lg:`).
@@ -57,6 +66,7 @@ Confirm the exact script names in `package.json` before relying on them.
 - Accessibility: semantic HTML (`button` for actions, `a` for navigation), labels for inputs, `alt` for images, visible keyboard focus.
 
 ## Data and mocks
+
 - Components must not import mock data directly or hardcode fake API responses.
 - Keep mock data and the functions that read it in one dedicated place. Reuse the existing folder if there is one; otherwise ask before creating it.
 - Data-access functions are async and typed with TypeScript types that describe the future API response shape. That way replacing mocks with real `fetch` calls later only changes that layer.
@@ -64,6 +74,7 @@ Confirm the exact script names in `package.json` before relying on them.
 - Do not add MSW, json-server, axios, or similar tools without approval.
 
 ## Hard rules
+
 - Make the smallest change that solves the task. No drive-by refactors, renames, or reformatting of unrelated code.
 - Only touch files that the task requires. If you need to go beyond that, stop and ask.
 - Do NOT install, remove, or upgrade dependencies without asking first.
@@ -73,13 +84,14 @@ Confirm the exact script names in `package.json` before relying on them.
 - If the task is ambiguous, ask ONE clarifying question before writing code.
 
 ## Working style
+
 - Plan mode: investigate and describe the plan (files to change, steps, risks). Do not modify source files.
 - Agent mode: execute ONLY the steps I name in the prompt. Do one step, run checks, report, then stop.
 - If you need to deviate from the plan (extra file, new dependency, different approach), stop and explain instead of proceeding.
 - If I introduce a pattern I may not know well, explain it in 1-2 sentences in your reply (not in code comments).
 
-
 ## When you finish a task, report
+
 1. Files changed, and what changed in each.
 2. Why you chose this approach (and one alternative if relevant).
 3. Assumptions you made.

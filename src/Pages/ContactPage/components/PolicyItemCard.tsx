@@ -1,4 +1,4 @@
-import type { PolicyItemType } from "@/constants/constants";
+import type { PolicyItemType } from '@/constants/constants';
 
 interface PolicyItemCardProps {
   item: PolicyItemType;

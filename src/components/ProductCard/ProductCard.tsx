@@ -1,9 +1,10 @@
+import { Link } from 'react-router';
+
 import { MoveUpRight } from 'lucide-react';
 
 import Button from '@/components/button/Button';
 import DashedBox from '@/components/dashedBox/DashedBox';
 import type { PRODUCT_type } from '@/constants/constants';
-import { Link } from 'react-router';
 
 const ProductCard = ({ product }: { product: PRODUCT_type }) => {
   return (
@@ -14,14 +15,14 @@ const ProductCard = ({ product }: { product: PRODUCT_type }) => {
         <DashedBox className="px-3 py-2 rounded-full! bg-dark-10 text-grey-70">
           {product.category}
         </DashedBox>
-        <Button
-          className=""
-          variant="cornerBordered"
-        >
-         <Link to={product.slug ? `/products/${product.slug}` : "#"} className="flex items-center justify-between gap-1">
-          <span>Shop Now</span>
-          <MoveUpRight size={'18'} />
-         </Link>
+        <Button className="" variant="cornerBordered">
+          <Link
+            to={product.slug ? `/products/${product.slug}` : '#'}
+            className="flex items-center justify-between gap-1"
+          >
+            <span>Shop Now</span>
+            <MoveUpRight size={'18'} />
+          </Link>
         </Button>
       </div>
       {/* bottom info */}

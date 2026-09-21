@@ -1,7 +1,7 @@
-import DashedLine from '@/components/dashedLine/DashedLine';
 import ProductRatingsBreakdown from '@/Pages/SingleProductPage/components/ProductRatingsBreakdown';
 import ProductRatingsOverview from '@/Pages/SingleProductPage/components/ProductRatingsOverview';
 import type { RatingBreakdownItem } from '@/Pages/SingleProductPage/types/types';
+import DashedLine from '@/components/dashedLine/DashedLine';
 
 // import ProductRatingsOverview from './ProductRatingsOverview';
 // import ProductRatingsBreakdown from './ProductRatingsBreakdown';
@@ -27,7 +27,10 @@ const ProductRatingsSection = ({
       <DashedLine />
 
       <div className="p-7.5 md:px-15 md:py-10 grid grid-cols-4 gap-10">
-        <ProductRatingsOverview averageRating={averageRating} totalRatings={totalRatings} />
+        <ProductRatingsOverview
+          averageRating={averageRating}
+          totalRatings={totalRatings}
+        />
         <ProductRatingsBreakdown breakdown={breakdown} />
       </div>
     </>

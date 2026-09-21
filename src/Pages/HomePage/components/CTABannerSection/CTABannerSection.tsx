@@ -22,7 +22,7 @@ const CTABannerSection = () => {
           Your style journey begins here.
         </p>
       </div>
-    <Link to={'/products'}>
+      <Link to={'/products'}>
         <Button
           icon={ArrowUpRight}
           variant="secondary"
