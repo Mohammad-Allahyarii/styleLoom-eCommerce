@@ -1,5 +1,6 @@
 import { useParams } from 'react-router';
 
+import NotFoundPage from '@/Pages/NotFoundPage/NotFoundPage';
 import ProductFeatures from '@/Pages/SingleProductPage/components/ProductFeatures';
 import ProductGallery from '@/Pages/SingleProductPage/components/ProductGallery';
 import ProductHeader from '@/Pages/SingleProductPage/components/ProductHeader';
@@ -44,6 +45,16 @@ const SingleProductPage = () => {
   const addItem = useCartStore((state) => state.addItem);
   const setQuantity = useCartStore((state) => state.setQuantity);
   const removeItem = useCartStore((state) => state.removeItem);
+
+  // Returned after all hooks so the hook order is identical for known and unknown ids.
+  if (!product) {
+    return (
+      <NotFoundPage
+        title="Product not found"
+        message="The product you're looking for doesn't exist or is no longer available."
+      />
+    );
+  }
 
   // The page's default size (ClotheSize) identifies this product's cart line.
   const lineId = getLineId(product.id, product.ClotheSize);

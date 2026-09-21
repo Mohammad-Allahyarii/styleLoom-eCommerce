@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router';
 import MainAppLayout from '@/Layouts/MainAppLayou/MainAppLayout';
 import ContactPage from '@/Pages/ContactPage/ContactPage';
 import HomePage from '@/Pages/HomePage/HomePage';
+import NotFoundPage from '@/Pages/NotFoundPage/NotFoundPage';
 import ProductsPage from '@/Pages/ProductsPage/ProductsPage';
 import ShoppingCartPage from '@/Pages/ShoppintCart/ShoppingCartPage';
 import SingleProductPage from '@/Pages/SingleProductPage/SingleProductPage';
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: '/shopping-cart',
         element: <ShoppingCartPage />,
+      },
+      {
+        path: '*',
+        element: <NotFoundPage />,
       },
     ],
   },

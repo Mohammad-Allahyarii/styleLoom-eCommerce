@@ -12,16 +12,14 @@ export function getRandomItems<T>(arr: T[], count: number): T[] {
   return shuffled.slice(0, count);
 }
 
+// Unknown ids are a normal navigation state, not an exception: the caller
+// renders its own not-found UI instead of relying on a thrown error.
 export function findProductInProducts(
   productID: string | undefined,
-): PRODUCT_type {
-  if (productID == undefined) {
-    throw Error('wrong product id - product not found');
-  } else {
-    const mainProduct = PRODUCTS.filter((product) => product.id == productID);
+): PRODUCT_type | undefined {
+  if (!productID) return undefined;
 
-    return mainProduct[0];
-  }
+  return PRODUCTS.find((product) => product.id === productID);
 }
 
 // Adapts the catalog product shape to the cart store's input contract:
