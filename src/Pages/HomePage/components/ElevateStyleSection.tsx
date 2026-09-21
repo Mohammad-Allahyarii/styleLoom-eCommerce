@@ -8,7 +8,8 @@ import { PRODUCTS, type PRODUCT_type } from '@/constants/constants';
 type currentSelectedCategoryType = 'all' | PRODUCT_type['category'];
 
 const ElevateStyleSection = () => {
-  const [currentSelectedCategory, setcurrentSelectedCategory] =
+  // no setter: the category is fixed to 'all' for now, state kept for the later filter UI
+  const [currentSelectedCategory] =
     useState<currentSelectedCategoryType>('all');
 
   const [filteredProducts, setFilteredProducts] = useState<PRODUCT_type[]>([]);
