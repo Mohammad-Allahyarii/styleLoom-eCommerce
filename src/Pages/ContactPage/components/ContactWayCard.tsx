@@ -3,10 +3,6 @@ import type { ContactWayType } from "@/constants/constants";
 
 
 const ContactWayCard = ({contactWayInfo}: { contactWayInfo: ContactWayType }) => {
-
-  console.log(contactWayInfo);
-  
-
   return <div className="flex flex-col items-center gap-4 p-15 relative">
     <img src={contactWayInfo.mainIconAddress} alt={contactWayInfo.title} />
     <p className="font-roboto-medium text-[24px] text-absolute-white mt-8.5">{contactWayInfo.title}</p>

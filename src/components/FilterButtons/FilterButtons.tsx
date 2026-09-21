@@ -13,8 +13,6 @@ function FilterButtons<T extends string>({
   options,
   getLabel,
 }: FilterButtonsProps<T>) {
-  console.log(options);
-
   return (
     <div className="flex items-center justify-start flex-nowrap overflow-x-auto gap-3.5">
       {options.map((option) => (

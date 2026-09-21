@@ -9,7 +9,7 @@ import { RETURN_POLICY_ITEMS } from '@/constants/constants';
 const items = RETURN_POLICY_ITEMS.map(
   ({ id, icon: Icon, title, description }) => (
     <div key={id} className="flex items-center gap-4 px-7.5 py-15">
-      <img src={Icon} />
+      <img src={Icon} alt="" />
 
       <div className="flex flex-col gap-1">
         <h3 className="text-absolute-white font-roboto-medium text-[20px]">
