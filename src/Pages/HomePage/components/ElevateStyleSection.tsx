@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import HEADER_IMAGE from '@/assets/images/elevate-section/Abstract Design.svg';
 import MainSectionTemplate from '@/components/MainSectionTelmplate/MainSectionTemplate';
@@ -12,17 +12,13 @@ const ElevateStyleSection = () => {
   const [currentSelectedCategory] =
     useState<currentSelectedCategoryType>('all');
 
-  const [filteredProducts, setFilteredProducts] = useState<PRODUCT_type[]>([]);
-
-  useEffect(() => {
-    setFilteredProducts(
-      currentSelectedCategory === 'all'
-        ? PRODUCTS
-        : PRODUCTS.filter(
-            (product) => product.category === currentSelectedCategory,
-          ),
-    );
-  }, [currentSelectedCategory]);
+  // derived during render: the category is fixed, so an effect+state round-trip would add nothing
+  const filteredProducts =
+    currentSelectedCategory === 'all'
+      ? PRODUCTS
+      : PRODUCTS.filter(
+          (product) => product.category === currentSelectedCategory,
+        );
 
   const renderedProducts = filteredProducts.slice(0, 6).map((product) => {
     return <ProductCard product={product} />;

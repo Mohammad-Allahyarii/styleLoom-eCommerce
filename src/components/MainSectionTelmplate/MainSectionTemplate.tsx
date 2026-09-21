@@ -13,7 +13,7 @@ interface PropsType {
   itemsPerRow?: number;
   rowsCount?: number;
   headerInfo: { title: string; description: string };
-  viewAllButton?: Boolean;
+  viewAllButton?: boolean;
   viewAllLink?: string;
   otherHeaderNodes?: ReactNode;
 }

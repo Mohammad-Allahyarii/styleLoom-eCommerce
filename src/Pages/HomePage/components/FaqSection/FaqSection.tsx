@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import FaqCard from '@/Pages/HomePage/components/FaqSection/FaqCard';
 import HEADER_IMAGE from '@/assets/images/faqs/Vector.svg';
@@ -16,24 +16,17 @@ const FaqSection = () => {
   const [currentQuestionType, setCurrentQuestionType] =
     useState<CategoriesType>('shipping');
 
-  const [filteredFAQs, setFilteredFAQs] = useState(() => {
+  // memoized because getRandomItems is random: a plain derive would reshuffle on every re-render
+  const filteredFAQs = useMemo(() => {
+    if (currentQuestionType === 'all') {
+      return getRandomItems<FAQ_TYPE>(FAQS, 6);
+    }
     return FAQS.filter((faq) => faq.questionType === currentQuestionType);
-  });
+  }, [currentQuestionType]);
 
   const faqElements = filteredFAQs.slice(0, 6).map((faq) => {
     return <FaqCard key={faq.id} faq={faq} />;
   });
-
-  useEffect(() => {
-    if (currentQuestionType == 'all') {
-      setFilteredFAQs(getRandomItems<FAQ_TYPE>(FAQS, 6));
-    } else {
-      const filteredFAQs = FAQS.filter(
-        (faq) => faq.questionType === currentQuestionType,
-      );
-      setFilteredFAQs(filteredFAQs);
-    }
-  }, [currentQuestionType]);
 
   return (
     <MainSectionTemplate

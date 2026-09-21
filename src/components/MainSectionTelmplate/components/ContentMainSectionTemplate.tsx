@@ -30,7 +30,7 @@ const ContentMainSectionTemplate = ({
   indexedInMobile?: number;
   rowsCount?: number;
   indexedInDesktop?: number;
-  viewAllButton?: Boolean;
+  viewAllButton?: boolean;
   viewAllLink?: string;
 }) => {
   const isMobile = useMediaQuery('(max-width:420px)');
