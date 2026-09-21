@@ -2,8 +2,8 @@ import { Link } from 'react-router';
 
 import { SquareArrowOutUpRight } from 'lucide-react';
 
-import heroImageDesktop from '@/assets/images/heroSectionImageDesktop.png';
-import heroImageMobile from '@/assets/images/heroSectionImageMobile.png';
+import heroImageDesktop from '@/assets/images/heroSectionImageDesktop.webp';
+import heroImageMobile from '@/assets/images/heroSectionImageMobile.webp';
 import Button from '@/components/button/Button';
 import DashedBox from '@/components/dashedBox/DashedBox';
 import DashedLine from '@/components/dashedLine/DashedLine';
