@@ -22,7 +22,6 @@ StyleLoom is a front-end e-commerce project: a fashion storefront with product b
 
 ## Screenshots
 
-
 | #   | Screenshot                                                  | Page                                               |
 | --- | ----------------------------------------------------------- | -------------------------------------------------- |
 | 1   | ![Home page](docs/screenshots/home.png)                     | `/` — hero, highlights, product sections           |
