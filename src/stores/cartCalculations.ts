@@ -11,8 +11,7 @@ export const PROMO_CODES: Record<string, number> = {
   SAVE10: 10,
 };
 
-export const roundToCents = (value: number): number =>
-  Math.round(value * 100) / 100;
+const roundToCents = (value: number): number => Math.round(value * 100) / 100;
 
 // A cart line is identified by product + size: the same product in a
 // different size is a separate line.

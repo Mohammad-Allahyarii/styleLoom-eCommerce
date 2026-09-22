@@ -75,10 +75,6 @@ const SingleProductPage = () => {
 
   const images = [product.image, product.image, product.image];
 
-  // const images = product.image?.length
-  //   ? product.image
-  //   : [product.image, product.image, product.image];
-
   return (
     <SectionContainer>
       <ProductHeader

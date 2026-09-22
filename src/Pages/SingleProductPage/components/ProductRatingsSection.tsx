@@ -3,10 +3,6 @@ import ProductRatingsOverview from '@/Pages/SingleProductPage/components/Product
 import type { RatingBreakdownItem } from '@/Pages/SingleProductPage/types/types';
 import DashedLine from '@/components/dashedLine/DashedLine';
 
-// import ProductRatingsOverview from './ProductRatingsOverview';
-// import ProductRatingsBreakdown from './ProductRatingsBreakdown';
-// import type { RatingBreakdownItem } from './types';
-
 export interface ProductRatingsSectionProps {
   averageRating: number;
   totalRatings: number;

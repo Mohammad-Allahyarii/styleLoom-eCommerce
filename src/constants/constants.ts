@@ -126,7 +126,7 @@ export const CRAFTING_TREND_SECTION: CRAFTING_TREND_SECTION_type[] = [
 // navigating styleloom home section
 export const PRODUCTS_CATEGORY = ['womenswear', 'accessories', 'kids'] as const;
 
-export type ProductsCategoryType = (typeof PRODUCTS_CATEGORY)[number];
+type ProductsCategoryType = (typeof PRODUCTS_CATEGORY)[number];
 
 export interface PRODUCT_type {
   id: string;

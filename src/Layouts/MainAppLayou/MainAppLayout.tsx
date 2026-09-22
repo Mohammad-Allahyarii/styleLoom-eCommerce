@@ -31,9 +31,6 @@ const MainAppLayout = () => {
       <LayoutNavbar />
       <Container as="main" className="flex-1 flex flex-col gap-10 pb-10 pt-10">
         <Outlet />
-        {/* <UserReviewsSection />
-        <FaqSection />
-        <CTABannerSection /> */}
         {LAYOUT_SECTIONS.map((Section) => (
           <AnimatedSection>
             <Section />
