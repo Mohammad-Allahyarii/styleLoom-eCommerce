@@ -6,7 +6,13 @@ export function getRandomItems<T>(arr: T[], count: number): T[] {
 
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    const itemAtI = shuffled[i];
+    const itemAtJ = shuffled[j];
+    // both indices are always within bounds here; the guard only satisfies
+    // noUncheckedIndexedAccess and never triggers
+    if (itemAtI === undefined || itemAtJ === undefined) continue;
+    shuffled[i] = itemAtJ;
+    shuffled[j] = itemAtI;
   }
 
   return shuffled.slice(0, count);
