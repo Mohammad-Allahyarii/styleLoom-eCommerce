@@ -3,7 +3,6 @@ import ElevateStyleSection from '@/Pages/HomePage/components/ElevateStyleSection
 import HeroSction from '@/Pages/HomePage/components/HeroSction';
 import NavigatingStyleloom from '@/Pages/HomePage/components/NavigatingStyleloom';
 import AnimatedSection from '@/components/AnimatedSection/AnimatedSection';
-import Container from '@/components/container/Container';
 
 const HOME_SECTIONS = [
   CraftingTrendsSection,
@@ -13,7 +12,7 @@ const HOME_SECTIONS = [
 
 const HomePage = () => {
   return (
-    <Container as="div" className={'flex flex-col gap-10'}>
+    <div className="flex flex-col gap-10">
       <HeroSction />
 
       {HOME_SECTIONS.map((Section, index) => (
@@ -21,7 +20,7 @@ const HomePage = () => {
           <Section />
         </AnimatedSection>
       ))}
-    </Container>
+    </div>
   );
 };
 
