@@ -20,7 +20,7 @@ const HeroSction = () => {
   const isMobile = useMediaQuery('(max-width:396px)');
 
   return (
-    <SectionContainer className={'text-absolute-white my-10 overflow-hidden'}>
+    <SectionContainer className={'text-absolute-white overflow-hidden'}>
       {/* top - img container */}
       <div className="relative">
         <img

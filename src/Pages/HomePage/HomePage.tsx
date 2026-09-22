@@ -13,7 +13,7 @@ const HOME_SECTIONS = [
 
 const HomePage = () => {
   return (
-    <Container as="div" className={'flex flex-col gap-10 pb-10'}>
+    <Container as="div" className={'flex flex-col gap-10'}>
       <HeroSction />
 
       {HOME_SECTIONS.map((Section, index) => (
