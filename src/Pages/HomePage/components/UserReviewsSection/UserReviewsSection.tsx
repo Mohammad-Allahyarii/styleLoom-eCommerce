@@ -1,5 +1,5 @@
 import UserReview from '@/Pages/HomePage/components/UserReviewsSection/UserReview';
-import HEADER_IMAGE from '@/assets/images/userReview-section/Abstract Design (1).svg';
+import HEADER_IMAGE from '@/assets/images/userReview-section/abstract-design-2.svg';
 import MainSectionTemplate from '@/components/MainSectionTelmplate/MainSectionTemplate';
 import { USER_REVIEWS } from '@/constants/constants';
 

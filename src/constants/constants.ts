@@ -8,9 +8,9 @@ import CONTACT_WAY_LOCATION_SIDE_ICON from '@/assets/images/contact-us/location-
 import CONTACT_WAY_PHONE from '@/assets/images/contact-us/phone-icon.svg';
 import CONTACT_WAY_PHONE_SIDE_ICON from '@/assets/images/contact-us/phone-side-icon.svg';
 // contact-up - return policy
-import ELIGIBILITY_ICON from '@/assets/images/contact-us/return policy/eng.svg';
-import PROCESS_ICON from '@/assets/images/contact-us/return policy/process.svg';
-import REFUND_ICON from '@/assets/images/contact-us/return policy/refund.svg';
+import ELIGIBILITY_ICON from '@/assets/images/contact-us/return-policy/eng.svg';
+import PROCESS_ICON from '@/assets/images/contact-us/return-policy/process.svg';
+import REFUND_ICON from '@/assets/images/contact-us/return-policy/refund.svg';
 import crafting_main_icon_1 from '@/assets/images/crafting-trend/1-crafting-trend-main.svg';
 import crafting_icon_1 from '@/assets/images/crafting-trend/1-crafting-trend.svg';
 import crafting_main_icon_2 from '@/assets/images/crafting-trend/2-crafting-trend-main.svg';
