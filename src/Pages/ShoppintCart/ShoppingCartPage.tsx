@@ -2,7 +2,7 @@ import CartItemRow from '@/Pages/ShoppintCart/components/CartItemRow';
 import EmptyCart from '@/Pages/ShoppintCart/components/EmptyCart';
 import OrderSummary from '@/Pages/ShoppintCart/components/OrderSummary';
 import HEADER_IMAGE from '@/assets/images/elevate-section/abstract-design.svg';
-import HeaderMainSectionTemplate from '@/components/MainSectionTelmplate/components/HeaderMainSectionTemplate';
+import HeaderMainSectionTemplate from '@/components/MainSectionTemplate/components/HeaderMainSectionTemplate';
 import DashedLine from '@/components/dashedLine/DashedLine';
 import SectionContainer from '@/components/sectionContainer/SectionContainer';
 import {

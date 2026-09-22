@@ -1,5 +1,5 @@
 import HEADER_IMG from '@/assets/images/navigatingStyleloom/section-icon.svg';
-import MainSectionTemplate from '@/components/MainSectionTelmplate/MainSectionTemplate';
+import MainSectionTemplate from '@/components/MainSectionTemplate/MainSectionTemplate';
 
 const STEPS = [
   {

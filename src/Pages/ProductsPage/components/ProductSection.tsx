@@ -1,5 +1,5 @@
-import BetweenMainSectionTitle from '@/components/MainSectionTelmplate/components/BetweenMainSectionTitle';
-import ContentMainSectionTemplate from '@/components/MainSectionTelmplate/components/ContentMainSectionTemplate';
+import BetweenMainSectionTitle from '@/components/MainSectionTemplate/components/BetweenMainSectionTitle';
+import ContentMainSectionTemplate from '@/components/MainSectionTemplate/components/ContentMainSectionTemplate';
 import ProductCard from '@/components/ProductCard/ProductCard';
 import type { PRODUCT_type } from '@/constants/constants';
 

@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 import FaqCard from '@/Pages/HomePage/components/FaqSection/FaqCard';
 import HEADER_IMAGE from '@/assets/images/faqs/Vector.svg';
 import FilterButtons from '@/components/FilterButtons/FilterButtons';
-import MainSectionTemplate from '@/components/MainSectionTelmplate/MainSectionTemplate';
+import MainSectionTemplate from '@/components/MainSectionTemplate/MainSectionTemplate';
 import {
   type CategoriesType,
   FAQS,

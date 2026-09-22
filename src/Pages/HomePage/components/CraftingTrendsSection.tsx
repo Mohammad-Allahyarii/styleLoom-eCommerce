@@ -1,5 +1,5 @@
 import TrendCraftCard from '@/Pages/HomePage/components/TrendCraftCard';
-import MainSectionTemplate from '@/components/MainSectionTelmplate/MainSectionTemplate';
+import MainSectionTemplate from '@/components/MainSectionTemplate/MainSectionTemplate';
 import { CRAFTING_TREND_SECTION } from '@/constants/constants';
 
 const CraftingTrendsSection = () => {

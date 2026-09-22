@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
-import ContentMainSectionTemplate from '@/components/MainSectionTelmplate/components/ContentMainSectionTemplate';
-import HeaderMainSectionTemplate from '@/components/MainSectionTelmplate/components/HeaderMainSectionTemplate';
+import ContentMainSectionTemplate from '@/components/MainSectionTemplate/components/ContentMainSectionTemplate';
+import HeaderMainSectionTemplate from '@/components/MainSectionTemplate/components/HeaderMainSectionTemplate';
 import DashedLine from '@/components/dashedLine/DashedLine';
 import SectionContainer from '@/components/sectionContainer/SectionContainer';
 

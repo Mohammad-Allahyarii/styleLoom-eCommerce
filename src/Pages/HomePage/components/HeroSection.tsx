@@ -16,7 +16,7 @@ import {
 } from '@/constants/constants';
 import useMediaQuery from '@/hooks/useMediaQuery';
 
-const HeroSction = () => {
+const HeroSection = () => {
   const isMobile = useMediaQuery('(max-width:396px)');
 
   return (
@@ -92,4 +92,4 @@ const HeroSction = () => {
   );
 };
 
-export default HeroSction;
+export default HeroSection;

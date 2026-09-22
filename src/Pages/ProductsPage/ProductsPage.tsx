@@ -3,7 +3,7 @@ import { useState } from 'react';
 import ProductSection from '@/Pages/ProductsPage/components/ProductSection';
 import HEADER_IMAGE from '@/assets/images/elevate-section/abstract-design.svg';
 import FilterButtons from '@/components/FilterButtons/FilterButtons';
-import HeaderMainSectionTemplate from '@/components/MainSectionTelmplate/components/HeaderMainSectionTemplate';
+import HeaderMainSectionTemplate from '@/components/MainSectionTemplate/components/HeaderMainSectionTemplate';
 import SectionContainer from '@/components/sectionContainer/SectionContainer';
 import { PRODUCTS, PRODUCTS_CATEGORY } from '@/constants/constants';
 

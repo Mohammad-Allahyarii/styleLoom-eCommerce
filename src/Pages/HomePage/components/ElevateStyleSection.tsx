@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import HEADER_IMAGE from '@/assets/images/elevate-section/abstract-design.svg';
-import MainSectionTemplate from '@/components/MainSectionTelmplate/MainSectionTemplate';
+import MainSectionTemplate from '@/components/MainSectionTemplate/MainSectionTemplate';
 import ProductCard from '@/components/ProductCard/ProductCard';
 import { PRODUCTS, type PRODUCT_type } from '@/constants/constants';
 

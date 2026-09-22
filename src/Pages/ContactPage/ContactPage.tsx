@@ -1,9 +1,9 @@
 import ContactWayCard from '@/Pages/ContactPage/components/ContactWayCard';
 import PolicySection from '@/Pages/ContactPage/components/PolicySection';
 import HEADER_IMAGE from '@/assets/images/contact-us/header-image.svg';
-import BetweenMainSectionTitle from '@/components/MainSectionTelmplate/components/BetweenMainSectionTitle';
-import ContentMainSectionTemplate from '@/components/MainSectionTelmplate/components/ContentMainSectionTemplate';
-import HeaderMainSectionTemplate from '@/components/MainSectionTelmplate/components/HeaderMainSectionTemplate';
+import BetweenMainSectionTitle from '@/components/MainSectionTemplate/components/BetweenMainSectionTitle';
+import ContentMainSectionTemplate from '@/components/MainSectionTemplate/components/ContentMainSectionTemplate';
+import HeaderMainSectionTemplate from '@/components/MainSectionTemplate/components/HeaderMainSectionTemplate';
 import SectionContainer from '@/components/sectionContainer/SectionContainer';
 import {
   CANCELLATION_POLICY_ITEMS,

@@ -1,7 +1,7 @@
 import { ArrowUpRight } from 'lucide-react';
 
 import PolicyItemCard from '@/Pages/ContactPage/components/PolicyItemCard';
-import ContentMainSectionTemplate from '@/components/MainSectionTelmplate/components/ContentMainSectionTemplate';
+import ContentMainSectionTemplate from '@/components/MainSectionTemplate/components/ContentMainSectionTemplate';
 import Button from '@/components/button/Button';
 import DashedLine from '@/components/dashedLine/DashedLine';
 import SectionContainer from '@/components/sectionContainer/SectionContainer';
