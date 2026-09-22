@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 
 import { Fragment } from 'react/jsx-runtime';
 
-import FooterSectionTitle from '@/Layouts/MainAppLayou/components/FooterSectionTitle';
+import FooterSectionTitle from '@/Layouts/MainAppLayout/components/FooterSectionTitle';
 import DotDivider from '@/components/dotDivider/DotDivider';
 
 interface props {

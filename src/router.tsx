@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router';
 
-import MainAppLayout from '@/Layouts/MainAppLayou/MainAppLayout';
+import MainAppLayout from '@/Layouts/MainAppLayout/MainAppLayout';
 import HomePage from '@/Pages/HomePage/HomePage';
 import NotFoundPage from '@/Pages/NotFoundPage/NotFoundPage';
 import HydrateFallback from '@/components/hydrateFallback/HydrateFallback';

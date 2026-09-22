@@ -2,8 +2,8 @@ import { Link } from 'react-router';
 
 import { CornerDownRight } from 'lucide-react';
 
-import FooterPageLinks from '@/Layouts/MainAppLayou/components/FooterPageLinks';
-import FooterSectionTitle from '@/Layouts/MainAppLayou/components/FooterSectionTitle';
+import FooterPageLinks from '@/Layouts/MainAppLayout/components/FooterPageLinks';
+import FooterSectionTitle from '@/Layouts/MainAppLayout/components/FooterSectionTitle';
 import star_footer from '@/assets/icons/star_footer.svg';
 import main_logo from '@/assets/logos/Logo.svg';
 import Container from '@/components/container/Container';

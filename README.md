@@ -111,7 +111,7 @@ npm run preview
 
 ```text
 src/
-├── Layouts/MainAppLayou/   # App shell: navbar, footer, layout route
+├── Layouts/MainAppLayout/   # App shell: navbar, footer, layout route
 ├── Pages/                  # One folder per route (home, products, cart, ...)
 ├── components/             # Shared UI (Button, ProductCard, ticker, ...)
 ├── constants/              # Mock data and design constants
@@ -257,7 +257,7 @@ npm run preview
 
 ```text
 src/
-├── Layouts/MainAppLayou/   # پوسته‌ی برنامه: نوار بالا، فوتر، مسیر چیدمان
+├── Layouts/MainAppLayout/   # پوسته‌ی برنامه: نوار بالا، فوتر، مسیر چیدمان
 ├── Pages/                  # یک پوشه برای هر مسیر (خانه، محصولات، سبد خرید، ...)
 ├── components/             # اجزای مشترک رابط کاربری (Button، ProductCard، ticker، ...)
 ├── constants/              # داده‌های Mock و ثابت‌های طراحی

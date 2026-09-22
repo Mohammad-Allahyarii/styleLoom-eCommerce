@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 
 import { Outlet, useLocation } from 'react-router';
 
-import LayoutFooter from '@/Layouts/MainAppLayou/components/LayoutFooter';
-import LayoutNavbar from '@/Layouts/MainAppLayou/components/LayoutNavbar';
+import LayoutFooter from '@/Layouts/MainAppLayout/components/LayoutFooter';
+import LayoutNavbar from '@/Layouts/MainAppLayout/components/LayoutNavbar';
 import CTABannerSection from '@/Pages/HomePage/components/CTABannerSection/CTABannerSection';
 import FaqSection from '@/Pages/HomePage/components/FaqSection/FaqSection';
 import UserReviewsSection from '@/Pages/HomePage/components/UserReviewsSection/UserReviewsSection';
