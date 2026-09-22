@@ -28,10 +28,10 @@ const ContentMainSectionTemplate = ({
   items: ReactNode[];
   itemsPerRow: number;
   indexedInMobile?: number;
-  rowsCount?: number;
+  rowsCount?: number | undefined;
   indexedInDesktop?: number;
   viewAllButton?: boolean;
-  viewAllLink?: string;
+  viewAllLink?: string | undefined;
 }) => {
   const isMobile = useMediaQuery('(max-width:420px)');
 

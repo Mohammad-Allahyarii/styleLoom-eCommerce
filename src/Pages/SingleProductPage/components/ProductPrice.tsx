@@ -3,9 +3,9 @@ import DashedLine from '@/components/dashedLine/DashedLine';
 
 export interface ProductPriceProps {
   price: number | string;
-  onAddToCart?: () => void;
+  onAddToCart?: (() => void) | undefined;
   quantityInCart?: number;
-  onChangeQuantity?: (nextQuantity: number) => void;
+  onChangeQuantity?: ((nextQuantity: number) => void) | undefined;
 }
 
 const ProductPrice = ({

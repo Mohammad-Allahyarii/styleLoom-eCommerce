@@ -21,20 +21,15 @@ interface TickerItems {
   content: React.ReactNode;
 }
 
-const tickerItems: TickerItems[] = [];
-
-for (let i = 0; i < FOOTER_ITEMS.length; i++) {
-  tickerItems.push({
-    id: FOOTER_ITEMS[i].id,
-    content: (
-      <span className="flex items-center gap-2">
-        {' '}
-        <img src={star_footer} className="max-w-8" alt="" />{' '}
-        <p>{FOOTER_ITEMS[i].title}</p>
-      </span>
-    ),
-  });
-}
+const tickerItems: TickerItems[] = FOOTER_ITEMS.map((item) => ({
+  id: item.id,
+  content: (
+    <span className="flex items-center gap-2">
+      {' '}
+      <img src={star_footer} className="max-w-8" alt="" /> <p>{item.title}</p>
+    </span>
+  ),
+}));
 
 const LayoutFooter = () => {
   const date = new Date();

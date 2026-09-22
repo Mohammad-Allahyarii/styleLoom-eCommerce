@@ -5,7 +5,7 @@ import clsx, { type ClassValue } from 'clsx';
 type propsType = {
   as?: ElementType;
   radius?: number;
-  className?: Omit<ClassValue, 'rounded'>;
+  className?: Omit<ClassValue, 'rounded'> | undefined;
   children: React.ReactNode;
 } & Omit<HTMLAttributes<HTMLElement>, 'as'>;
 

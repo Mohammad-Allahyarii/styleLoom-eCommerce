@@ -9,7 +9,7 @@ type PropsType = {
   icon?: LucideIcon;
   variant?: 'primary' | 'secondary' | 'cornerBordered' | 'bordered';
   className?: ClassValue;
-  onClick?: () => void;
+  onClick?: (() => void) | undefined;
   leftIcon?: boolean;
 };
 

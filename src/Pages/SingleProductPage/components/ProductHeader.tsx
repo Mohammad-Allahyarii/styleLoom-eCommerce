@@ -9,9 +9,9 @@ export interface ProductHeaderProps {
   description: string;
   inStock: boolean;
   product: PRODUCT_type;
-  onAddToCart?: () => void;
+  onAddToCart?: (() => void) | undefined;
   quantityInCart?: number;
-  onChangeQuantity?: (nextQuantity: number) => void;
+  onChangeQuantity?: ((nextQuantity: number) => void) | undefined;
 }
 
 const ProductHeader = ({

@@ -6,7 +6,7 @@ interface PropsType {
   title: ReactNode;
   description?: ReactNode;
   otherNodes?: ReactNode;
-  imgAdress?: string;
+  imgAdress?: string | undefined;
 }
 
 const HeaderMainSectionTemplate = ({
