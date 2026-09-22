@@ -11,14 +11,22 @@ import clsx from 'clsx';
 // } & Omit<HTMLAttributes<HTMLElement>, 'as'>;
 
 type PropsType = {
-  as: ElementType;
+  as?: ElementType;
   className?: ClassValue;
   children?: React.ReactNode;
 } & Omit<HTMLAttributes<HTMLElement>, 'as'>;
 
-const Container = ({ as: Element = 'div', className, children }: PropsType) => {
+const Container = ({
+  as: Element = 'div',
+  className,
+  children,
+  ...rest
+}: PropsType) => {
   return (
-    <Element className={clsx('container lg:max-w-7xl mx-auto px-2', className)}>
+    <Element
+      {...rest}
+      className={clsx('container lg:max-w-7xl mx-auto px-2', className)}
+    >
       {children}
     </Element>
   );
