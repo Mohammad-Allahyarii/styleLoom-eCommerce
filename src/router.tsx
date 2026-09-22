@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
       {
         path: '/shopping-cart',
         lazy: () =>
-          import('@/Pages/ShoppintCart/ShoppingCartPage').then((m) => ({
+          import('@/Pages/ShoppingCart/ShoppingCartPage').then((m) => ({
             Component: m.default,
           })),
       },

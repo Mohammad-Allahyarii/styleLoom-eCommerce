@@ -1,6 +1,6 @@
 import { ShoppingCart } from 'lucide-react';
 
-import QuantityStepper from '@/Pages/ShoppintCart/components/QuantityStepper';
+import QuantityStepper from '@/Pages/ShoppingCart/components/QuantityStepper';
 import Button from '@/components/button/Button';
 
 interface PropsType {

@@ -1,6 +1,6 @@
 import { X } from 'lucide-react';
 
-import QuantityStepper from '@/Pages/ShoppintCart/components/QuantityStepper';
+import QuantityStepper from '@/Pages/ShoppingCart/components/QuantityStepper';
 import DashedBox from '@/components/dashedBox/DashedBox';
 import type { CartItemType } from '@/types/cart';
 

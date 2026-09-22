@@ -1,7 +1,7 @@
-import PromoCodeField from '@/Pages/ShoppintCart/components/PromoCodeField';
-import SummaryRow from '@/Pages/ShoppintCart/components/SummaryRow';
-import TotalRow from '@/Pages/ShoppintCart/components/TotalRow';
-import { formatPrice } from '@/Pages/ShoppintCart/components/formatPrice';
+import PromoCodeField from '@/Pages/ShoppingCart/components/PromoCodeField';
+import SummaryRow from '@/Pages/ShoppingCart/components/SummaryRow';
+import TotalRow from '@/Pages/ShoppingCart/components/TotalRow';
+import { formatPrice } from '@/Pages/ShoppingCart/components/formatPrice';
 import Button from '@/components/button/Button';
 import DashedLine from '@/components/dashedLine/DashedLine';
 import type { PromoResult } from '@/types/cart';

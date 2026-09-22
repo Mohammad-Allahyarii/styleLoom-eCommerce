@@ -1,5 +1,5 @@
 // Shared cart domain types. This is the single source of truth for the
-// cart store; the page-level copy under src/Pages/ShoppintCart/types/
+// cart store; the page-level copy under src/Pages/ShoppingCart/types/
 // is removed once the page migration repoints its imports.
 
 export interface CartItemType {
