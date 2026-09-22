@@ -8,8 +8,7 @@ import Container from '@/components/container/Container';
 import DashedLine from '@/components/dashedLine/DashedLine';
 
 const LayoutNavbar = () => {
-
-  console.warn("add products count to shop icon in navbar")
+  console.warn('add products count to shop icon in navbar');
 
   return (
     <>
