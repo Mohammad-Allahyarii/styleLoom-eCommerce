@@ -23,16 +23,16 @@ const HeroSection = () => {
     <SectionContainer className={'text-absolute-white overflow-hidden'}>
       {/* top - img container */}
       <div className="relative">
-        <img
-          className="w-full hidden md:block"
-          src={heroImageDesktop}
-          alt="hero section image"
-        />
-        <img
-          className="w-full block md:hidden"
-          src={heroImageMobile}
-          alt="hero section image"
-        />
+        {/* one <picture> instead of two display-toggled <img>s: the browser
+            fetches only the source matching the current viewport */}
+        <picture>
+          <source media="(min-width: 768px)" srcSet={heroImageDesktop} />
+          <img
+            className="w-full"
+            src={heroImageMobile}
+            alt="hero section image"
+          />
+        </picture>
         <Link to="/products">
           <Button
             className="absolute! -bottom-4 left-1/2 -translate-x-1/2  flex items-center gap-1"
