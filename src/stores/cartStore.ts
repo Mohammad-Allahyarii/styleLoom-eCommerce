@@ -253,15 +253,35 @@ export const useCartStore = create<CartStore>()(
 );
 
 const resolveAvailableLines = (items: CartItemType[]): ResolvedCartLine[] =>
-  items
-    .map(resolveCartLine)
-    .filter((line): line is ResolvedCartLine => line.available);
+  // single source of resolution: the reference-keyed cache below, so the
+  // numeric selectors never resolve independently
+  resolveItemsCached(items).filter(
+    (line): line is ResolvedCartLine => line.available,
+  );
 
 // Selectors return primitives or existing state references so that
 // component subscriptions only re-render on meaningful changes.
 export const selectItems = (state: CartStore): CartItemType[] => state.items;
+// Memoized resolution keyed on the raw items reference. The selector MUST
+// return the same array reference until state.items changes — a fresh array
+// per call looks like new state to useSyncExternalStore (Object.is compare)
+// and causes the "Maximum update depth exceeded" render loop.
+let resolvedItemsCache: { items: CartItemType[]; resolved: CartLine[] } | null =
+  null;
+
+const resolveItemsCached = (items: CartItemType[]): CartLine[] => {
+  if (resolvedItemsCache === null || resolvedItemsCache.items !== items) {
+    resolvedItemsCache = {
+      items,
+      resolved: items.map(resolveCartLine),
+    };
+  }
+
+  return resolvedItemsCache.resolved;
+};
+
 export const selectResolvedItems = (state: CartStore): CartLine[] =>
-  state.items.map(resolveCartLine);
+  resolveItemsCached(state.items);
 export const selectAppliedPromoCode = (state: CartStore): string | null =>
   state.appliedPromoCode;
 export const selectItemCount = (state: CartStore): number =>
