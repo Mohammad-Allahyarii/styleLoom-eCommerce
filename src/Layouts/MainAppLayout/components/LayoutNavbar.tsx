@@ -9,14 +9,14 @@ import Button from '@/components/button/Button';
 import Container from '@/components/container/Container';
 import DashedLine from '@/components/dashedLine/DashedLine';
 import useMediaQuery from '@/hooks/useMediaQuery';
+import { selectLineCount, useCartStore } from '@/stores/cartStore';
 
+import CartBadge from './CartBadge';
 import NavbarMenuToggle from './NavbarMenuToggle';
 import NavbarMobileMenu from './NavbarMobileMenu';
 import { NAV_ITEMS } from './navItems';
 
 const LayoutNavbar = () => {
-  console.warn('add products count to shop icon in navbar');
-
   const { pathname } = useLocation();
   const isDesktop = useMediaQuery('(min-width: 768px)');
 
@@ -27,6 +27,8 @@ const LayoutNavbar = () => {
   const toggleRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
   const panelId = useId();
+  // per-value subscription: re-renders only when the line count changes
+  const lineCount = useCartStore(selectLineCount);
 
   const isOpen = menuOpenPath === pathname && !isDesktop;
 
@@ -147,7 +149,10 @@ const LayoutNavbar = () => {
         {/* right */}
         <div className="hidden md:flex justify-end items-center gap-3">
           <Link to="/shopping-cart">
-            <Button variant="secondary" icon={ShoppingCart} />
+            <span className="relative inline-flex">
+              <Button variant="secondary" icon={ShoppingCart} />
+              <CartBadge count={lineCount} />
+            </span>
           </Link>
 
           <Link to={'contact-us'}>
@@ -168,6 +173,7 @@ const LayoutNavbar = () => {
         panelId={panelId}
         items={NAV_ITEMS}
         onClose={closeMenu}
+        cartLineCount={lineCount}
       />
       <DashedLine />
     </>

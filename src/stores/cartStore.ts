@@ -206,6 +206,9 @@ export const selectAppliedPromoCode = (state: CartStore): string | null =>
   state.appliedPromoCode;
 export const selectItemCount = (state: CartStore): number =>
   getItemCount(state.items);
+// distinct cart lines: each entry in items IS one line (getLineId = product + size),
+// unlike selectItemCount which sums quantities
+export const selectLineCount = (state: CartStore): number => state.items.length;
 export const selectSubtotal = (state: CartStore): number =>
   getSubtotal(state.items);
 export const selectDiscount = (state: CartStore): number =>

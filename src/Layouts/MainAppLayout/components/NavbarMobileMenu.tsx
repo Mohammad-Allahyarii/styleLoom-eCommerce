@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import logo from '@/assets/logos/Logo.svg';
 import DashedLine from '@/components/dashedLine/DashedLine';
 
+import CartBadge from './CartBadge';
 import { type NavbarMenuItemType } from './navItems';
 
 interface PropsType {
@@ -14,6 +15,7 @@ interface PropsType {
   panelId: string;
   items: NavbarMenuItemType[];
   onClose: () => void;
+  cartLineCount: number;
   ref?: Ref<HTMLDivElement>;
 }
 
@@ -22,6 +24,7 @@ const NavbarMobileMenu = ({
   panelId,
   items,
   onClose,
+  cartLineCount,
   ref,
 }: PropsType) => {
   return (
@@ -73,7 +76,13 @@ const NavbarMobileMenu = ({
                 }
               >
                 {item.title}
-                {item.icon && <item.icon size={24} strokeWidth={2.5} />}
+                {/* only the Cart item carries an icon, so the badge lands there */}
+                {item.icon && (
+                  <span className="relative inline-flex">
+                    <item.icon size={24} strokeWidth={2.5} />
+                    <CartBadge count={cartLineCount} />
+                  </span>
+                )}
               </NavLink>
             </Fragment>
           ))}
