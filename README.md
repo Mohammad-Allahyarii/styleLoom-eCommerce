@@ -2,7 +2,7 @@
 
 A responsive front-end e-commerce showcase (clothing store) with a real, persistent shopping cart — data is mocked, no backend required.
 
-[![Live demo](https://img.shields.io/badge/Live_demo-https%3A%2F%2FYOUR--PROJECT.vercel.app-8B4513)](https://styleloom-ecommerce-three.vercel.app/) <!-- TODO: replace with the real Vercel URL -->
+[![Live demo](https://img.shields.io/badge/Live_demo-styleloom--ecommerce--three.vercel.app-8B4513)](https://styleloom-ecommerce-three.vercel.app)
 [![CI](https://github.com/Mohammad-Allahyarii/styleLoom-eCommerce/actions/workflows/ci.yml/badge.svg)](https://github.com/Mohammad-Allahyarii/styleLoom-eCommerce/actions/workflows/ci.yml)
 ![React](https://img.shields.io/badge/React-19-149ECA)
 ![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6)
@@ -18,7 +18,7 @@ StyleLoom is a front-end e-commerce project: a fashion storefront with product b
 
 ## Live demo
 
-[https://YOUR-PROJECT.vercel.app](https://styleloom-ecommerce-three.vercel.app/) <!-- TODO: replace with the real Vercel URL -->
+[https://styleloom-ecommerce-three.vercel.app](https://styleloom-ecommerce-three.vercel.app)
 
 ## Screenshots
 
@@ -39,6 +39,9 @@ StyleLoom is a front-end e-commerce project: a fashion storefront with product b
 - Cart lines are keyed by product + size, so the same product in two sizes is two lines
 - Promo codes: `SAVE10` applies a 10% discount; invalid codes, empty codes, and an empty cart are rejected
 - Cart contents and the applied promo code persist across reloads via `localStorage`
+- Only the user's decision is persisted (product id, size, quantity); title, image, and price resolve live from the catalog, so a saved cart always shows current data
+- A cart line whose product no longer exists shows a "no longer available" row and is excluded from totals until removed
+- The header cart icon and the mobile menu's Cart row show a live count of distinct cart lines
 - Invalid or stale persisted state (wrong types, unknown promo codes) is discarded on restore
 - Order summary with subtotal, discount, and total derived by pure functions
 - Empty-cart state with a link back to the products page
@@ -49,13 +52,14 @@ StyleLoom is a front-end e-commerce project: a fashion storefront with product b
 - Products page with category filter buttons (`all`, `womenswear`, `accessories`, `kids`)
 - Product detail page at `/products/:productID` with gallery, materials, features, sizes, and ratings
 - Add to cart and quantity control from the product detail page
-- Category filtering is functional; the "Dress Collection / Accessories / Bags" groups on the products page are static slices of the same mock list (UI only)
+- Category filter buttons update their selection state but do not change which products are shown; the "Dress Collection / Accessories / Bags" groups are static slices of the same mock list (a known limitation, not a working feature)
 - Size selector on the product detail page is display-only (UI only)
 
 ### UI & design
 
 - Dark theme with a dashed-border design system (buttons, boxes, dividers)
 - Responsive from mobile to desktop (Tailwind CSS v4, mobile-first utilities)
+- Off-canvas mobile navigation drawer with backdrop, animation, focus trap, and scroll lock
 - Scroll-triggered section animations (`motion`) and a marquee footer ticker
 - Unknown URLs render a styled 404 page inside the normal layout; unknown product ids render a "Product not found" view
 - Scroll-to-top on route change
@@ -133,21 +137,17 @@ The app deploys on Vercel as a static Vite build: framework preset Vite, build c
 - No authentication, no user accounts, no order history.
 - No automated tests: CI runs the format check, ESLint, and the type-checked build, but there is no test runner.
 - No i18n: the UI is English-only.
-- The cart stores product image URLs; a future re-build that changes asset hashes or paths would break images in already-persisted carts.
 - Product detail extras (sizes, ratings breakdown, features, gallery images) are hardcoded fallbacks, not driven by the product data.
 - The promo system is hardcoded to `SAVE10` (10% off); only one code can be active.
 - Product data has no per-size pricing or stock; sizes are display-only.
-- No route-level code splitting: the app ships as a single JS chunk (~500 kB before gzip).
 
 ## Roadmap
 
-- Planned: route-level code splitting with `React.lazy` to shrink the initial bundle.
 - Planned: introduce an automated test runner (Vitest + Testing Library) for cart math and store logic.
 - Planned: move mock data behind typed async data-access functions so a real API can replace it later.
 - Planned: make product sizes interactive and cart lines size-aware in the UI.
 - Planned: wire checkout to a real payment provider (Stripe or similar) behind a backend service.
-- Planned: replace the persisted image URLs with stable public paths or product ids.
-- Planned: add a license and fill in the placeholder demo URL.
+- Planned: add a license.
 - Planned: add `engines`/`.nvmrc` to pin the Node version.
 
 ## Author
@@ -171,11 +171,11 @@ The app deploys on Vercel as a static Vite build: framework preset Vite, build c
 
 ## دموی زنده
 
-[https://YOUR-PROJECT.vercel.app](https://YOUR-PROJECT.vercel.app) <!-- TODO: replace with the real Vercel URL -->
+[https://styleloom-ecommerce-three.vercel.app](https://styleloom-ecommerce-three.vercel.app)
 
 ## اسکرین‌شات‌ها
 
-تصاویر در پوشه‌ی `docs/screenshots/` قرار می‌گیرند (هنوز ثبت نشده‌اند) و در بخش انگلیسیِ بالای همین سند نمایش داده شده‌اند: صفحه‌ی اصلی (`home.png`)، محصولات (`products.png`)، جزئیات محصول (`product-detail.png`)، سبد خرید (`cart.png`)، تماس با ما (`contact.png`) و نمای موبایل (`mobile-home.png`).
+تصاویر در پوشه‌ی `docs/screenshots/` قرار دارند و در بخش انگلیسیِ بالای همین سند نمایش داده شده‌اند: صفحه‌ی اصلی (`home.png`)، محصولات (`products.png`)، جزئیات محصول (`product-detail.png`)، سبد خرید (`cart.png`)، تماس با ما (`contact.png`) و نمای موبایل (`mobile-home.jpg`).
 
 ## امکانات
 
@@ -185,6 +185,9 @@ The app deploys on Vercel as a static Vite build: framework preset Vite, build c
 - خط‌های سبد با کلید «محصول + سایز» ساخته می‌شوند؛ یک محصول در دو سایز = دو خط جداگانه
 - کد تخفیف: `SAVE10` ده درصد تخفیف اعمال می‌کند؛ کد نامعتبر، کد خالی و سبد خالی رد می‌شوند
 - محتوای سبد و کد تخفیف فعال با `localStorage` در بارگذاری‌های بعدی باقی می‌مانند
+- فقط تصمیم کاربر ذخیره می‌شود (شناسه‌ی محصول، سایز و تعداد)؛ عنوان، تصویر و قیمت در زمان نمایش مستقیم از کاتالوگ خوانده می‌شوند تا سبدِ ذخیره‌شده همیشه داده‌ی به‌روز نشان دهد
+- خطی که محصولش دیگر در کاتالوگ نباشد حالت «این محصول دیگر موجود نیست» را نشان می‌دهد و تا حذف، از محاسبات کنار گذاشته می‌شود
+- آیکون سبد در هدر و ردیف سبد در منوی موبایل، شمارنده‌ی زنده‌ی خط‌های سبد را نشان می‌دهند
 - داده‌ی ذخیره‌شده‌ی نامعتبر (تایپ اشتباه یا کد ناشناخته) هنگام بازیابی دور ریخته می‌شود
 - خلاصه‌ی سفارش با جمع جزء، تخفیف و مبلغ نهایی که با توابع خالص محاسبه می‌شوند
 - حالت سبد خالی با لینک بازگشت به صفحه‌ی محصولات
@@ -195,13 +198,14 @@ The app deploys on Vercel as a static Vite build: framework preset Vite, build c
 - صفحه‌ی محصولات با دکمه‌های فیلتر دسته‌بندی (`all`، `womenswear`، `accessories`، `kids`)
 - صفحه‌ی جزئیات محصول در `/products/:productID` با گالری، جنس، ویژگی‌ها، سایزها و امتیازها
 - افزودن به سبد و کنترل تعداد از صفحه‌ی جزئیات محصول
-- فیلتر دسته‌بندی کار می‌کند؛ گروه‌های «Dress Collection / Accessories / Bags» در صفحه‌ی محصولات برش‌های ثابتی از همان لیست Mock هستند (فقط رابط کاربری)
+- دکمه‌های فیلتر دسته‌بندی وضعیت انتخاب خود را به‌روز می‌کنند اما محصولاتِ نمایش‌داده‌شده را تغییر نمی‌دهند؛ گروه‌های «Dress Collection / Accessories / Bags» برش‌های ثابتی از همان لیست Mock هستند (محدودیت شناخته‌شده، نه قابلیت فعال)
 - انتخاب سایز در صفحه‌ی جزئیات محصول صرفاً نمایشی است (فقط رابط کاربری)
 
 ### رابط کاربری و طراحی
 
 - تم تیره با سیستم طراحیِ حاشیه‌ی خط‌چین (دکمه‌ها، باکس‌ها، جداکننده‌ها)
 - واکنش‌گرا از موبایل تا دسکتاپ (Tailwind CSS v4 با رویکرد موبایل‌محور)
+- منوی ناوبری موبایل به‌صورت `drawer` کشویی از لبه‌ی چپ با `backdrop`، انیمیشن باز/بسته، `focus trap` و قفل اسکرول
 - انیمیشن بخش‌ها هنگام اسکرول (`motion`) و نوار متحرک (ticker) در فوتر
 - آدرس‌های ناموجود، صفحه‌ی 404 استایل‌دار داخل چیدمان معمول را می‌بینند؛ شناسه‌ی محصول ناشناخته هم نمای «محصول یافت نشد» را نشان می‌دهد
 - اسکرول به بالای صفحه هنگام تغییر مسیر
@@ -279,21 +283,17 @@ src/
 - بدون احراز هویت، حساب کاربری و تاریخچه‌ی سفارش.
 - بدون تست خودکار: CI بررسی فرمت، ESLint و بیلد تایپ‌محور را اجرا می‌کند اما test runner‌ای وجود ندارد.
 - بدون i18n: رابط کاربری فقط انگلیسی است.
-- سبد خرید آدرس تصویر محصولات را ذخیره می‌کند؛ اگر بیلد آینده هش یا مسیر assetها را تغییر دهد، تصاویرِ سبد‌های ذخیره‌شده می‌شکنند.
 - بخش‌های تکمیلی صفحه‌ی محصول (سایزها، تفکیک امتیازها، ویژگی‌ها، تصاویر گالری) مقادیر ثابت هستند و از داده‌ی محصول نمی‌آیند.
 - سیستم تخفیف به `SAVE10` (۱۰ درصد) محدود است؛ فقط یک کد می‌تواند فعال باشد.
 - داده‌ی محصول قیمت و موجودیِ به‌ازای سایز ندارد؛ سایزها فقط نمایشی‌اند.
-- بدون code splitting در سطح مسیر: برنامه به‌صورت یک chunk واحد ارسال می‌شود (حدود ۵۰۰ کیلوبایت پیش از gzip).
 
 ## نقشه‌ی راه
 
-- برنامه‌ریزی‌شده: code splitting در سطح مسیر با `React.lazy` برای کوچک‌شدن باندل اولیه.
 - برنامه‌ریزی‌شده: افزودن test runner خودکار (Vitest و Testing Library) برای محاسبات و منطق سبد.
 - برنامه‌ریزی‌شده: انتقال داده‌های Mock پشت توابع async تایپ‌دار تا بعداً یک API واقعی جایگزین شود.
 - برنامه‌ریزی‌شده: تعاملی‌کردن انتخاب سایز و آگاه‌کردن خط‌های سبد از سایز در رابط کاربری.
 - برنامه‌ریزی‌شده: اتصال Checkout به یک درگاه پرداخت واقعی (مانند Stripe) پشت یک سرویس بک‌اند.
-- برنامه‌ریزی‌شده: جایگزینی آدرس‌های تصویرِ ذخیره‌شده با مسیرهای عمومی پایدار یا شناسه‌ی محصول.
-- برنامه‌ریزی‌شده: افزودن مجوز (LICENSE) و جایگزینی آدرس دموی جای‌نگهدار.
+- برنامه‌ریزی‌شده: افزودن مجوز (LICENSE).
 - برنامه‌ریزی‌شده: افزودن `engines`/`.nvmrc` برای تثبیت نسخه‌ی Node.
 
 ## نویسنده
