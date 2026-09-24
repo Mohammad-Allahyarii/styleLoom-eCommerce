@@ -1,7 +1,6 @@
-import type { CartItemType } from '@/types/cart';
-
-// Pure cart math — no React, no store imports. Kept free of side
-// effects so both the store and future callers can reuse it safely.
+// Pure cart math — no React, no store imports, no catalog access. Kept free
+// of side effects so both the store and future callers can reuse it safely.
+// Parameters are structural minimums: callers pass resolved (priced) lines.
 
 export const QUANTITY_MIN = 1;
 export const QUANTITY_MAX = 99;
@@ -18,13 +17,15 @@ const roundToCents = (value: number): number => Math.round(value * 100) / 100;
 export const getLineId = (productId: string, size: string): string =>
   `${productId}-${size}`;
 
-export const getSubtotal = (items: CartItemType[]): number =>
+export const getSubtotal = (
+  items: { unitPrice: number; quantity: number }[],
+): number =>
   roundToCents(
     items.reduce((sum, item) => sum + item.unitPrice * item.quantity, 0),
   );
 
 export const getDiscount = (
-  items: CartItemType[],
+  items: { unitPrice: number; quantity: number }[],
   promoCode: string | null,
 ): number => {
   if (!promoCode) return 0;
@@ -36,12 +37,12 @@ export const getDiscount = (
 };
 
 export const getTotal = (
-  items: CartItemType[],
+  items: { unitPrice: number; quantity: number }[],
   promoCode: string | null,
 ): number =>
   roundToCents(Math.max(getSubtotal(items) - getDiscount(items, promoCode), 0));
 
-export const getItemCount = (items: CartItemType[]): number =>
+export const getItemCount = (items: { quantity: number }[]): number =>
   items.reduce((sum, item) => sum + item.quantity, 0);
 
 // Guards numeric input coming from the UI: rejects non-finite values,

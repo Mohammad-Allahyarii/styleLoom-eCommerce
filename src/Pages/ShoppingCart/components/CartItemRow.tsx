@@ -2,15 +2,36 @@ import { X } from 'lucide-react';
 
 import QuantityStepper from '@/Pages/ShoppingCart/components/QuantityStepper';
 import DashedBox from '@/components/dashedBox/DashedBox';
-import type { CartItemType } from '@/types/cart';
+import type { CartLine } from '@/types/cart';
 
 interface PropsType {
-  item: CartItemType;
+  item: CartLine;
   onChangeQuantity: (id: string, nextQuantity: number) => void;
   onRemove: (id: string) => void;
 }
 
 const CartItemRow = ({ item, onChangeQuantity, onRemove }: PropsType) => {
+  // a persisted line whose product left the catalog: no image/price/stepper
+  // to show — only the message and a remove button; it stays until the user
+  // removes it (never dropped automatically on load)
+  if (!item.available) {
+    return (
+      <div className="p-6 md:p-8 flex items-center justify-between gap-6">
+        <p className="font-roboto-mono-regular text-grey-50 text-[14px]">
+          This item is no longer available
+        </p>
+        <button
+          type="button"
+          aria-label="Remove item from cart"
+          onClick={() => onRemove(item.id)}
+          className="p-1.5 rounded-lg text-grey-50 cursor-pointer transition-all duration-300 ease-in-out hover:text-absolute-white hover:bg-dark-10 shrink-0"
+        >
+          <X size={18} />
+        </button>
+      </div>
+    );
+  }
+
   const lineTotal = item.unitPrice * item.quantity;
 
   return (

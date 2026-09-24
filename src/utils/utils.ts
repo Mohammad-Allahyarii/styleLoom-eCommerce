@@ -29,15 +29,12 @@ export function findProductInProducts(
 }
 
 // Adapts the catalog product shape to the cart store's input contract:
-// id → productId, ClotheSize → size, string price → numeric unitPrice.
+// id → productId, ClotheSize → size. The cart stores only the user's
+// decision; title/image/price are resolved live by the store.
 export const toAddToCartInput = (
   product: PRODUCT_type,
   size: string = product.ClotheSize,
 ): AddToCartInput => ({
   productId: product.id,
-  title: product.title,
-  image: product.image,
-  category: product.category,
   size,
-  unitPrice: Number(product.price),
 });

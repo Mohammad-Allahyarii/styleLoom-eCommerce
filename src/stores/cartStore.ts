@@ -12,7 +12,14 @@ import {
   getTotal,
   sanitizeQuantity,
 } from '@/stores/cartCalculations';
-import type { AddToCartInput, CartItemType, PromoResult } from '@/types/cart';
+import type {
+  AddToCartInput,
+  CartItemType,
+  CartLine,
+  PromoResult,
+  ResolvedCartLine,
+} from '@/types/cart';
+import { findProductInProducts } from '@/utils/utils';
 
 interface CartState {
   items: CartItemType[];
@@ -30,6 +37,47 @@ interface CartActions {
 
 export type CartStore = CartState & CartActions;
 
+// The single join point between a stored cart line and the product catalog.
+// Title/image/price/category are NEVER persisted; when the catalog moves to
+// an async data-access layer, only this function changes.
+export const resolveCartLine = (item: CartItemType): CartLine => {
+  const product = findProductInProducts(item.productId);
+
+  if (!product) {
+    return { ...item, available: false };
+  }
+
+  return {
+    ...item,
+    available: true,
+    title: product.title,
+    image: product.image,
+    category: product.category,
+    unitPrice: Number(product.price),
+  };
+};
+
+// v1 lines baked product data in; v2 keeps only the user's decision, so the
+// migration maps each old entry down to its four surviving fields and drops
+// malformed entries outright.
+const migrateV1Item = (item: unknown): CartItemType | null => {
+  if (typeof item !== 'object' || item === null) return null;
+
+  const { id, productId, size, quantity } = item as Record<string, unknown>;
+
+  if (
+    typeof id !== 'string' ||
+    typeof productId !== 'string' ||
+    typeof size !== 'string' ||
+    typeof quantity !== 'number' ||
+    !Number.isFinite(quantity)
+  ) {
+    return null;
+  }
+
+  return { id, productId, size, quantity };
+};
+
 // Restoring an empty cart invalidates the persisted promo code, and
 // unknown codes are dropped so a stale key can never grant a discount.
 const mergePersistedState = (
@@ -43,12 +91,7 @@ const mergePersistedState = (
       item !== null &&
       typeof item.id === 'string' &&
       typeof item.productId === 'string' &&
-      typeof item.title === 'string' &&
-      typeof item.image === 'string' &&
-      typeof item.category === 'string' &&
       typeof item.size === 'string' &&
-      typeof item.unitPrice === 'number' &&
-      Number.isFinite(item.unitPrice) &&
       typeof item.quantity === 'number' &&
       Number.isFinite(item.quantity),
   );
@@ -85,11 +128,7 @@ export const useCartStore = create<CartStore>()(
                 const newItem: CartItemType = {
                   id: lineId,
                   productId: input.productId,
-                  title: input.title,
-                  image: input.image,
-                  category: input.category,
                   size: input.size,
-                  unitPrice: input.unitPrice,
                   quantity,
                 };
 
@@ -183,12 +222,26 @@ export const useCartStore = create<CartStore>()(
       }),
       {
         name: 'cart-store',
-        version: 1,
+        version: 2,
         storage: createJSONStorage(() => localStorage),
         partialize: (state) => ({
           items: state.items,
           appliedPromoCode: state.appliedPromoCode,
         }),
+        migrate: (persistedState) => {
+          const persisted = persistedState as Partial<CartState> | undefined;
+          const items = Array.isArray(persisted?.items) ? persisted.items : [];
+
+          return {
+            items: items
+              .map(migrateV1Item)
+              .filter((item): item is CartItemType => item !== null),
+            appliedPromoCode:
+              typeof persisted?.appliedPromoCode === 'string'
+                ? persisted.appliedPromoCode
+                : null,
+          };
+        },
         merge: (persistedState, currentState) => ({
           ...currentState,
           ...mergePersistedState(persistedState as Partial<CartState>),
@@ -199,19 +252,26 @@ export const useCartStore = create<CartStore>()(
   ),
 );
 
+const resolveAvailableLines = (items: CartItemType[]): ResolvedCartLine[] =>
+  items
+    .map(resolveCartLine)
+    .filter((line): line is ResolvedCartLine => line.available);
+
 // Selectors return primitives or existing state references so that
 // component subscriptions only re-render on meaningful changes.
 export const selectItems = (state: CartStore): CartItemType[] => state.items;
+export const selectResolvedItems = (state: CartStore): CartLine[] =>
+  state.items.map(resolveCartLine);
 export const selectAppliedPromoCode = (state: CartStore): string | null =>
   state.appliedPromoCode;
 export const selectItemCount = (state: CartStore): number =>
-  getItemCount(state.items);
+  getItemCount(resolveAvailableLines(state.items));
 // distinct cart lines: each entry in items IS one line (getLineId = product + size),
 // unlike selectItemCount which sums quantities
 export const selectLineCount = (state: CartStore): number => state.items.length;
 export const selectSubtotal = (state: CartStore): number =>
-  getSubtotal(state.items);
+  getSubtotal(resolveAvailableLines(state.items));
 export const selectDiscount = (state: CartStore): number =>
-  getDiscount(state.items, state.appliedPromoCode);
+  getDiscount(resolveAvailableLines(state.items), state.appliedPromoCode);
 export const selectTotal = (state: CartStore): number =>
-  getTotal(state.items, state.appliedPromoCode);
+  getTotal(resolveAvailableLines(state.items), state.appliedPromoCode);

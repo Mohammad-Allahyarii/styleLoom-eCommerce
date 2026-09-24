@@ -1,15 +1,11 @@
-// Shared cart domain types. This is the single source of truth for the
-// cart store; the page-level copy under src/Pages/ShoppingCart/types/
-// is removed once the page migration repoints its imports.
+// Shared cart domain types. The persisted cart stores ONLY the user's
+// decision (productId + size + quantity); product data is resolved live
+// from the catalog at render/calculation time (see resolveCartLine).
 
 export interface CartItemType {
   id: string;
   productId: string;
-  title: string;
-  image: string;
-  category: string;
   size: string;
-  unitPrice: number;
   quantity: number;
 }
 
@@ -17,13 +13,26 @@ export interface CartItemType {
 // productId + size and applies its own quantity default/clamping.
 export interface AddToCartInput {
   productId: string;
+  size: string;
+  quantity?: number;
+}
+
+// A cart line joined with its catalog data at read time.
+export interface ResolvedCartLine extends CartItemType {
+  available: true;
   title: string;
   image: string;
   category: string;
-  size: string;
   unitPrice: number;
-  quantity?: number;
 }
+
+// A persisted line whose productId no longer resolves in the catalog;
+// it is excluded from calculations and shows only a remove affordance.
+export interface UnavailableCartLine extends CartItemType {
+  available: false;
+}
+
+export type CartLine = ResolvedCartLine | UnavailableCartLine;
 
 export type PromoResult =
   | { success: true }

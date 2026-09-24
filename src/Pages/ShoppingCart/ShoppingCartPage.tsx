@@ -8,14 +8,18 @@ import SectionContainer from '@/components/sectionContainer/SectionContainer';
 import {
   selectAppliedPromoCode,
   selectDiscount,
-  selectItems,
+  selectLineCount,
+  selectResolvedItems,
   selectSubtotal,
   selectTotal,
   useCartStore,
 } from '@/stores/cartStore';
 
 const ShoppingCartPage = () => {
-  const items = useCartStore(selectItems);
+  // rows render resolved lines (live catalog data); totals selectors resolve internally
+  const items = useCartStore(selectResolvedItems);
+  // an empty cart is about raw items, not available lines
+  const lineCount = useCartStore(selectLineCount);
   const subtotal = useCartStore(selectSubtotal);
   const discount = useCartStore(selectDiscount);
   const total = useCartStore(selectTotal);
@@ -34,7 +38,7 @@ const ShoppingCartPage = () => {
         imgAdress={HEADER_IMAGE}
       />
       <DashedLine />
-      {items.length === 0 ? (
+      {lineCount === 0 ? (
         <EmptyCart />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-[1fr_360px] relative">
