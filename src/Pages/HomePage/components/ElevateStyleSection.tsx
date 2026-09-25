@@ -21,7 +21,7 @@ const ElevateStyleSection = () => {
         );
 
   const renderedProducts = filteredProducts.slice(0, 6).map((product) => {
-    return <ProductCard product={product} />;
+    return <ProductCard product={product} key={product.id} />;
   });
 
   return (

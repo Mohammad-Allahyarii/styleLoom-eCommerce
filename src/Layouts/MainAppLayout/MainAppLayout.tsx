@@ -32,7 +32,9 @@ const MainAppLayout = () => {
       <Container as="main" className="flex-1 flex flex-col gap-10 pb-10 pt-10">
         <Outlet />
         {LAYOUT_SECTIONS.map((Section) => (
-          <AnimatedSection>
+          // key from the component's own name: stable across renders without
+          // adding an id field to the array
+          <AnimatedSection key={Section.name}>
             <Section />
           </AnimatedSection>
         ))}
