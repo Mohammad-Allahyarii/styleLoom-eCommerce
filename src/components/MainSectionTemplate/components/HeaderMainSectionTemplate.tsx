@@ -1,7 +1,5 @@
 import { type ReactNode } from 'react';
 
-import useMediaQuery from '@/hooks/useMediaQuery';
-
 interface PropsType {
   title: ReactNode;
   description?: ReactNode;
@@ -15,8 +13,6 @@ const HeaderMainSectionTemplate = ({
   otherNodes,
   imgAdress,
 }: PropsType) => {
-  const isMobile = useMediaQuery('(max-width: 420px)');
-
   return (
     <div className="py-10 md:py-15 px-4 md:px-12 flex flex-col gap-6 relative overflow-hidden rounded-tr-2xl">
       <h4 className="text-[28px] text-absolute-white font-roboto-medium uppercase">
@@ -28,8 +24,10 @@ const HeaderMainSectionTemplate = ({
 
       {otherNodes}
 
-      {imgAdress && !isMobile && (
-        <div className="md:max-w-80 absolute -right-20 -top-10">
+      {/* md-breakpoint hiding instead of JS: without the max-w-80 cap the
+          absolute image would overlap the title below md */}
+      {imgAdress && (
+        <div className="md:max-w-80 absolute -right-20 -top-10 hidden md:block">
           <img src={imgAdress} alt="header image" className="w-full h-auto" />
         </div>
       )}

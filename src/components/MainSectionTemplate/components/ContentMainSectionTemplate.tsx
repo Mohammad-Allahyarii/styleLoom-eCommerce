@@ -33,7 +33,10 @@ const ContentMainSectionTemplate = ({
   viewAllButton?: boolean;
   viewAllLink?: string | undefined;
 }) => {
-  const isMobile = useMediaQuery('(max-width:420px)');
+  // md-aligned breakpoint (768px): keeps JS branching in sync with Tailwind's
+  // own md: classes used for the grid columns (767.98px = exact complement
+  // of min-width: 768px, so 768 and up is desktop in both systems)
+  const isMobile = useMediaQuery('(max-width: 767.98px)');
 
   // if rowsCount is provided, the number of desktop items is calculated based on it
   const desktopItemsLimit = rowsCount

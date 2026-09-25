@@ -14,11 +14,8 @@ import {
   HERO_SECTION_DESCRIPTION,
   HERO_SECTION_TITLE,
 } from '@/constants/constants';
-import useMediaQuery from '@/hooks/useMediaQuery';
 
 const HeroSection = () => {
-  const isMobile = useMediaQuery('(max-width:396px)');
-
   return (
     <SectionContainer className={'text-absolute-white overflow-hidden'}>
       {/* top - img container */}
@@ -67,7 +64,10 @@ const HeroSection = () => {
           </p>
         </div>
 
-        {isMobile ? <DashedLine /> : <DashedLine axis="vertical" />}
+        {/* both variants stay rendered so CSS alone picks one; the separator
+            matches the stacked layout below md and the side-by-side one above */}
+        <DashedLine className="md:hidden" />
+        <DashedLine className="hidden md:block" axis="vertical" />
         {/* right side */}
         <div className="grid grid-cols-2 grid-rows-2 relative">
           {HERO_SECTION_DATAS.slice(0, 4).map((item) => (

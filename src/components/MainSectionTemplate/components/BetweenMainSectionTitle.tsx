@@ -4,7 +4,6 @@ import { MoveUpRight } from 'lucide-react';
 
 import Button from '@/components/button/Button';
 import DashedLine from '@/components/dashedLine/DashedLine';
-import useMediaQuery from '@/hooks/useMediaQuery';
 
 interface Props_type {
   title: string;
@@ -15,8 +14,6 @@ interface Props_type {
 }
 
 const BetweenMainSectionTitle = ({ title, link }: Props_type) => {
-  const isMobile = useMediaQuery('(max-width:420px)');
-
   return (
     <>
       <DashedLine />
@@ -25,16 +22,20 @@ const BetweenMainSectionTitle = ({ title, link }: Props_type) => {
           {title}
         </h6>
 
-        {link && !isMobile && (
-          <Button variant="cornerBordered">
-            <Link
-              to={link.url}
-              className="flex items-center gap-1 font-roboto-regular text-[14px]"
-            >
-              <span>{link.text}</span>
-              <MoveUpRight />
-            </Link>
-          </Button>
+        {/* md-breakpoint hiding instead of JS; the button is flex by default,
+            so a plain block wrapper preserves its layout when shown */}
+        {link && (
+          <span className="hidden md:block">
+            <Button variant="cornerBordered">
+              <Link
+                to={link.url}
+                className="flex items-center gap-1 font-roboto-regular text-[14px]"
+              >
+                <span>{link.text}</span>
+                <MoveUpRight />
+              </Link>
+            </Button>
+          </span>
         )}
       </div>
       <DashedLine />
