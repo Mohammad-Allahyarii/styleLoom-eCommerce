@@ -1,6 +1,8 @@
+import { useState } from 'react';
+
 import { Link } from 'react-router';
 
-import { CornerDownRight } from 'lucide-react';
+import { Check, CornerDownRight } from 'lucide-react';
 
 import FooterPageLinks from '@/Layouts/MainAppLayout/components/FooterPageLinks';
 import FooterSectionTitle from '@/Layouts/MainAppLayout/components/FooterSectionTitle';
@@ -33,6 +35,9 @@ const tickerItems: TickerItems[] = FOOTER_ITEMS.map((item) => ({
 
 const LayoutFooter = () => {
   const date = new Date();
+
+  // no backend: submitting only flips a local confirmation state
+  const [subscribed, setSubscribed] = useState(false);
 
   return (
     <footer className="">
@@ -80,15 +85,39 @@ const LayoutFooter = () => {
         {/* sub to newsletter */}
         <div className="flex flex-col items-start gap-6">
           <FooterSectionTitle title="Subscribe to Newsletter" />
-          <form className="flex item-center bg-dark-10 rounded-lg py-4 px-3.5 w-full">
+          <form
+            className="flex item-center bg-dark-10 rounded-lg py-4 px-3.5 w-full"
+            onSubmit={(event) => {
+              event.preventDefault();
+              setSubscribed(true);
+            }}
+          >
+            <label htmlFor="newsletter-email" className="sr-only">
+              Email address
+            </label>
             <input
-              className="placeholder:text-grey-40 placeholder:font-roboto-mono-regular placeholder:text-sm w-full outline-none"
+              id="newsletter-email"
+              type="email"
+              required
+              className="placeholder:text-grey-40 placeholder:font-roboto-mono-regular text-absolute-white placeholder:text-sm w-full outline-none"
               placeholder="Your Email..."
             />
-            <button>
-              <CornerDownRight className="text-brown-60 " />
+            <button
+              type="submit"
+              aria-label="Subscribe to newsletter"
+              className="cursor-pointer"
+            >
+              {/* icon swap is the whole confirmation: no layout shift */}
+              {subscribed ? (
+                <Check className="text-brown-60" />
+              ) : (
+                <CornerDownRight className="text-brown-60 " />
+              )}
             </button>
           </form>
+          <p aria-live="polite" className="sr-only">
+            {subscribed ? 'Subscribed successfully.' : ''}
+          </p>
         </div>
       </Container>
       <DashedLine />
