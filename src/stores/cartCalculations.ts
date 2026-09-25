@@ -8,6 +8,7 @@ export const QUANTITY_MAX = 99;
 // Only a percentage promo for now; values are percent off the subtotal.
 export const PROMO_CODES: Record<string, number> = {
   SAVE10: 10,
+  K2FREE: 100
 };
 
 const roundToCents = (value: number): number => Math.round(value * 100) / 100;
