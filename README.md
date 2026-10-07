@@ -298,7 +298,7 @@ src/
 
 ## نویسنده
 
-**محمدالهیاری (Mohammad Allahyari)** — [@Mohammad-Allahyarii](https://github.com/Mohammad-Allahyarii)
+**محمد الهیاری (Mohammad Allahyari)** — [@Mohammad-Allahyarii](https://github.com/Mohammad-Allahyarii)
 
 </div>
 
